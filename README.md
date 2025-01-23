@@ -1,17 +1,9 @@
 # Auto Fusion - A car buy/sell website
 
-![Website's hero section](./src/assets/heroSection.png)
+<!-- ![Website's hero section](./src/assets/heroSection.png) -->
 
-### Server Side Repo - [Server Side Repository](https://github.com/nahidul-fahim/motor-mingle-server)
 
-### Live site - [Website's live link](https://motor-mingle.web.app)
-
-## Admin login
-
-email: admin@admin.com
-password: Asdf$$
-
-# Technologies used:
+<!-- # Technologies used:
 
 1.  HTML
 2.  CSS
@@ -111,4 +103,4 @@ A normal user can visit the user dashboard and the user gets redirected to the "
 
 Here users can those listing that they have bookmarked.
 
-# Your visit, a delightful honor! Thank you!
+# Your visit, a delightful honor! Thank you! -->
