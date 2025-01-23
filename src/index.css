@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.min-h-calc-100vh-70 {
+  min-height: calc(100vh - 70px);
+}
+
+
+
+/* Add this style for the underline */
+.active-nav-menu::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: #4E6CFB;
+}
+
+.single-nav-menu::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: #4E6CFB;
+  transition: all 0.3s linear;
+}
+
+.single-nav-menu:hover::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 3px;
+  background-color: #4E6CFB;
+}
+
+
+
+.link-style {
+  color: white;
+  padding: 4px 16px;
+  transition: all 0.5s;
+  font-weight: 500;
+  width: 100%;
+  font-size: 14px;
+}
+
+.link-style:hover {
+  background-color: white;
+  color: #000;
+  border-radius: 3px;
+}
+
+.active-link-style {
+  font-weight: 500;
+  width: 100%;
+  font-size: 14px;
+  padding: 4px 16px;
+  background-color: white;
+  color: #000;
+  border-radius: 3px;
+}
+
+
+.glass-background {
+  background-color: rgba(98, 0, 255, 0.719);
+  backdrop-filter: blue(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.5s;
+}
+
+.glass-background:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 70px -5px rgb(98, 0, 255);
+}
+
+.table-description {
+  padding: 10px 10px;
+  text-align: center;
+  border: 1px solid rgb(201, 201, 201);
+}
+
+.table-row:hover {
+  background-color: #ebebeb;
+}
+
+
+.listing-image {
+  width: 100%;
+  height: 0;
+  background: #ffffffcb;
+  transition: all .8s ease;
+}
+
+
+.listing-item:hover .listing-image {
+  height: 100%;
+  opacity: 0.4;
+}
+
+
+
+
+/* the ":root" and [data-theme="dark"] - are not being used in the website, but this will be helpful for the future use in any project. So, I'm keeping it. */
+:root {
+  --second_color: #060045;
+}
+
+[data-theme="dark"] {
+  --second_color: cyan;
+}
