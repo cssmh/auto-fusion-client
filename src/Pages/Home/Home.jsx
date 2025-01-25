@@ -6,13 +6,9 @@ import Testimonial from "./Testimonial";
 import TopBidListings from "./TopBidListings";
 import UserActivity from "./UserActivity";
 
-
-
 const Home = () => {
-
-
     return (
-        <div>
+        <>
             <Banner />
             <UserActivity />
             <AboutSection />
@@ -20,7 +16,7 @@ const Home = () => {
             <Testimonial />
             <TopBidListings />
             <Newsletter />
-        </div>
+        </>
     );
 };
 
