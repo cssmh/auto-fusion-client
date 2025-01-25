@@ -127,7 +127,9 @@ const AllListings = () => {
 
                     :
                     <div className="w-full h-full flex flex-col justify-center items-center">
-                        <Lottie animationData={carLottie} />
+                        <div className='w-1/2'>
+                            <Lottie animationData={carLottie} />
+                        </div>
                         <h3 className="text-4xl font-bold text-lightBlack text-center">Oops! No data found!</h3>
                     </div>
             }

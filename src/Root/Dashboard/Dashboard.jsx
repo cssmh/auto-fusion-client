@@ -7,12 +7,9 @@ import useIsAdmin from "../../Hooks/useIsAdmin/useIsAdmin";
 import { useEffect } from "react";
 import useCurrentUser from "../../Hooks/useCurrentUser/useCurrentUser";
 import LoadingAnimation from "../../Components/Shared/LoadingAnimation/LoadingAnimation";
-import logo from "../../assets/bg.png"
+import logo from "../../assets/auto.png"
 
 const Dashboard = () => {
-
-
-    // hooks and custom hooks
     const { signOutUser, authLoading } = useAuthContext();
     const { isAdminPending, isAdmin } = useIsAdmin();
     const navigate = useNavigate();
@@ -130,12 +127,12 @@ const Dashboard = () => {
 
                         {/* website logo */}
                         <Link to="/" className="w-full flex justify-center items-center">
-                            <img src={logo} alt="Auto Fusion logo" className="w-3/4 hover:scale-110 duration-300" />
+                            <img src={logo} alt="Auto Fusion logo" className="w-40 hover:scale-110 duration-300" />
                         </Link>
 
 
                         {/* Sidebar links here */}
-                        <div className="w-full flex-grow flex flex-col content-between justify-between">
+                        <div className="w-full mt-4 flex-grow flex flex-col content-between justify-between">
 
                             {/* admin - user links */}
                             <div className="w-full flex flex-col justify-start items-start gap-2">

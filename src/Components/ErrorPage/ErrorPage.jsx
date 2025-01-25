@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 const ErrorPage = () => {
     return (
         <div className="container mx-auto p-5 flex flex-col justify-center items-center gap-0 h-[100vh] font-body">
