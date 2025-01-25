@@ -22,19 +22,15 @@ const AllListings = () => {
     const [carPrice, setCarPrice] = useState(sessionStorage.getItem("carPrice") || "all");
     const { filteredListingPending, filteredListing, filteredListingRefetch, pages } = useFilteredListings(currentPage, carCondition, carBrand, carPrice);
 
-
-
     useEffect(() => {
         scrollToTop();
         sessionStorage.clear();
     }, [scrollToTop])
 
-
     // conditional loading
     if (filteredListingPending) {
         return <LoadingAnimation />
     }
-
 
     // set total pages
     const totalPages = [...Array(pages).keys()];
@@ -116,9 +112,6 @@ const AllListings = () => {
                     </select>
                 </div>
             </div>
-
-
-            {/* show all the listings */}
             {
                 filteredListing.length > 0 && !filteredListingPending ?
 
@@ -138,9 +131,6 @@ const AllListings = () => {
                         <h3 className="text-4xl font-bold text-lightBlack text-center">Oops! No data found!</h3>
                     </div>
             }
-
-
-            {/* pagination */}
             <div className="flex justify-center items-center gap-3 mt-10">
                 {
                     totalPages.map(page =>

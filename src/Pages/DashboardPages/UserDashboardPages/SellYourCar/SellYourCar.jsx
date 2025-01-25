@@ -9,18 +9,11 @@ import useAxiosSecure from '../../../../Hooks/useAxiosSecure/useAxiosSecure';
 import useCurrentUser from '../../../../Hooks/useCurrentUser/useCurrentUser';
 import LoadingAnimation from '../../../../Components/Shared/LoadingAnimation/LoadingAnimation';
 
-
-
 // image hosting (imgBB) key and url
-const imgHostingKey = import.meta.env.VITE_IMAGE_HOSTING_KEY
+const imgHostingKey = import.meta.env.VITE_imgBbKey
 const imgUploadUrl = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
 
-
-
 const SellYourCar = () => {
-
-
-    //hooks and custom hooks
     const [selectedImageName, setSelectedImageName] = useState('');
     const [selectedImage, setSelectedImage] = useState(null);
     const addingForm = useRef(null);

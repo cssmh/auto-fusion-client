@@ -2,23 +2,13 @@ import axios from "axios";
 import useAuthContext from "../useAuthContext/useAuthContext";
 import { useNavigate } from "react-router-dom";
 
-// create axios instance
 const axiosSecure = axios.create({
-    // baseURL: 'http://localhost:5000'
-    baseURL: 'https://motor-mingle-server.vercel.app'
+    baseURL: import.meta.env.VITE_server_URL
 })
 
-
 const useAxiosSecure = () => {
-
-
-    // hooks and custom hooks
     const { signOutUser } = useAuthContext();
     const navigate = useNavigate();
-
-
-
-    // axios interceptor to add token in header while request for verification in backend
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token');
         config.headers.authorization = `Bearer ${token}`;
@@ -27,7 +17,6 @@ const useAxiosSecure = () => {
         function (error) {
             return Promise.reject(error);
         });
-
 
     // axios interceptor in response to intercept 401 and 403 status
     axiosSecure.interceptors.response.use(response => {

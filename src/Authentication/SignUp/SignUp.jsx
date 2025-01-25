@@ -11,7 +11,7 @@ import { FaUpload } from "react-icons/fa";
 
 
 // image hosting (imgBB) key and url
-const imgHostingKey = import.meta.env.VITE_IMAGE_HOSTING_KEY
+const imgHostingKey = import.meta.env.VITE_imgBbKey
 const imgUploadUrl = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
 
 

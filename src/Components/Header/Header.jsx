@@ -3,7 +3,7 @@ import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAuthContext from "../../Hooks/useAuthContext/useAuthContext";
 import useCurrentUser from "../../Hooks/useCurrentUser/useCurrentUser";
-import websiteLogo from "../../assets/fusionn.png"
+import websiteLogo from "../../assets/fusion.png"
 
 const Header = () => {
 

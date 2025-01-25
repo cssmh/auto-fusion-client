@@ -4,8 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -19,8 +17,6 @@ body {
 .min-h-calc-100vh-70 {
   min-height: calc(100vh - 70px);
 }
-
-
 
 /* Add this style for the underline */
 .active-nav-menu::after {
@@ -48,8 +44,6 @@ body {
   background-color: #4E6CFB;
 }
 
-
-
 .link-style {
   color: white;
   padding: 4px 16px;
@@ -74,7 +68,6 @@ body {
   color: #000;
   border-radius: 3px;
 }
-
 
 .glass-background {
   background-color: rgba(98, 0, 255, 0.719);
