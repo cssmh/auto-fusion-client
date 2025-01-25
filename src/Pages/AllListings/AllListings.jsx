@@ -13,7 +13,6 @@ const allCarBrands = ["Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", 
 
 
 const AllListings = () => {
-
     // hooks and custom hooks
     const scrollToTop = useScrollToTop();
     const [currentPage, setCurrentPage] = useState(1);
@@ -35,7 +34,6 @@ const AllListings = () => {
     // set total pages
     const totalPages = [...Array(pages).keys()];
 
-
     // animation
     AOS.init({
         offset: 120,
@@ -44,19 +42,15 @@ const AllListings = () => {
         delay: 50,
     });
 
-
-
     return (
         <div className="container mx-auto flex flex-col justify-center items-center gap-5 p-5">
-            <h2 className="text-center text-4xl md:text-5xl font-bold text-main capitalize"
+            <h2 className="text-center text-2xl md:text-3xl font-bold text-main capitalize"
                 data-aos="fade-down"
                 data-aos-mirror="true"
                 data-aos-once="false"
                 data-aos-anchor-placement="top-bottom">All Listings</h2>
-
             {/* filtering options */}
-            <div className="w-full flex flex-col md:flex-row justify-start items-start gap-2 md:justify-end md:items-center md:gap-8 lg:gap-10 mt-[20px] md:mt-[30px] lg:mt-[50px]">
-
+            <div className="w-full flex flex-col md:flex-row justify-start items-start gap-2 md:justify-end md:items-center md:gap-6 lg:gap-8 mt-3">
                 {/* car condition */}
                 <div className="flex flex-row md:flex-col justify-start items-center md:items-start gap-3 md:gap-2">
                     <label className="text-lightBlack">Car condition</label>
@@ -66,7 +60,7 @@ const AllListings = () => {
                             const selectedValue = e.target.value;
                             setCarCondition(selectedValue)
                         }}
-                        defaultValue={carCondition} name='carCondition' className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded focus:outline-none'>
+                        defaultValue={carCondition} name='carCondition' className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded-md focus:outline-none'>
                         <option disabled value="">Choose car condition</option>
                         <option value="all">All</option>
                         <option value="super fresh">Super Fresh</option>
@@ -74,7 +68,6 @@ const AllListings = () => {
                         <option value="moderate">Moderate</option>
                     </select>
                 </div>
-
                 {/* car brand */}
                 <div className="flex flex-row md:flex-col justify-start items-center md:items-start gap-3 md:gap-2">
                     <label className="text-lightBlack">Car brand</label>
@@ -83,7 +76,7 @@ const AllListings = () => {
                             const selectedValue = e.target.value;
                             setCarBrand(selectedValue)
                         }}
-                        className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded focus:outline-none'>
+                        className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded-md focus:outline-none'>
                         <option disabled value="">Choose car brand</option>
                         <option value="all">All</option>
                         {
@@ -92,7 +85,6 @@ const AllListings = () => {
                         }
                     </select>
                 </div>
-
                 {/* car price */}
                 <div className="flex flex-row md:flex-col justify-start items-center md:items-start gap-3 md:gap-2">
                     <label className="text-lightBlack">Price range</label>
@@ -101,7 +93,7 @@ const AllListings = () => {
                             const selectedValue = e.target.value;
                             setCarPrice(selectedValue)
                         }}
-                        className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded focus:outline-none'>
+                        className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded-md focus:outline-none'>
                         <option disabled value={""}>Select price range</option>
                         <option value="all">All</option>
                         <option value="1000-1999">$1000 - $1999</option>
@@ -114,9 +106,7 @@ const AllListings = () => {
             </div>
             {
                 filteredListing.length > 0 && !filteredListingPending ?
-
                     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-[20px]">
-                        {/* listing cards */}
                         {
                             filteredListing.map((singleList, index) =>
                                 <SingleListing key={index} singleList={singleList} listingsRefetch={filteredListingRefetch}
@@ -124,7 +114,6 @@ const AllListings = () => {
                             )
                         }
                     </div>
-
                     :
                     <div className="w-full h-full flex flex-col justify-center items-center">
                         <div className='w-1/2'>

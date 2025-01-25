@@ -11,10 +11,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useBids from "../../../Hooks/useBids/useBids";
 
-
 const SingleListing = ({ singleList, listingsRefetch }) => {
-
-
     // hooks
     const { dbCurrentUserPending, dbCurrentUser } = useCurrentUser();
     const axiosSecure = useAxiosSecure();
@@ -24,7 +21,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
     // get bidding listing
     const productId = singleList?._id;
     const { bidsPending, allBids } = useBids(productId)
-
 
     // delete a singleList
     const handleDeleteListing = id => {
@@ -64,7 +60,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
         });
     }
 
-
     // update sell status of a singleList
     const handleSold = id => {
         const sellStatus = "sold";
@@ -103,7 +98,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
         });
     }
 
-
     // remove saved item from database
     const handleRemoveSaved = (_id) => {
         axiosSecure.delete(`/removedSavedAd/${_id}?email=${dbCurrentUser?.email}`)
@@ -120,7 +114,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
             })
     }
 
-
     // animation
     AOS.init({
         offset: 120,
@@ -129,14 +122,11 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
         delay: 50,
     });
 
-
     if (bidsPending) {
         return <span className="loading loading-dots loading-xs text-[#ffffff21]"></span>
     }
 
-
-    console.log(singleList)
-
+    // console.log(singleList)
 
     return (
         <div key={singleList?._id} className='flex flex-col justify-center items-start relative rounded-[20px] listing-item'
@@ -290,34 +280,12 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                             </div>
                         })
                     }
-
-
-
-                    {/* modal closing button */}
                     <button onClick={() => document.getElementById('bidsShowingModal').close()}
                         className="bg-black text-white hover:bg-sub duration-300 px-4 py-2 rounded-[20px]">Close
                     </button>
 
                 </div>
             </dialog>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     );
 };
