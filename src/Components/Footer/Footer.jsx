@@ -3,7 +3,6 @@ import 'aos/dist/aos.css';
 import logo from "../../assets/bg.png"
 
 const Footer = () => {
-    // get year
     const currentYear = new Date().getFullYear();
     AOS.init({
         offset: 120,

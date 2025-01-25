@@ -106,7 +106,7 @@ const AllListings = () => {
             </div>
             {
                 filteredListing.length > 0 && !filteredListingPending ?
-                    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-[20px]">
+                    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">
                         {
                             filteredListing.map((singleList, index) =>
                                 <SingleListing key={index} singleList={singleList} listingsRefetch={filteredListingRefetch}

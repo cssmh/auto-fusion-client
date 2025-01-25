@@ -129,23 +129,19 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
     // console.log(singleList)
 
     return (
-        <div key={singleList?._id} className='flex flex-col justify-center items-start relative rounded-[20px] listing-item'
+        <div className='flex flex-col justify-center items-start relative listing-item'
             data-aos="fade-up"
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-anchor-placement="top-bottom">
-
-            {/* listing image */}
             <div className='relative w-full justify-self-stretch'>
                 <img
                     src={singleList?.photo}
                     alt={`${singleList?.carName}'s image`}
-                    className='rounded-t-[20px] w-full lg:h-[198px]'
+                    className='rounded-t-md w-full lg:h-[170px]'
                 />
-                <div className='absolute top-0 right-0 listing-image rounded-t-[20px]'></div>
+                <div className='absolute top-0 right-0 listing-image'></div>
             </div>
-
-
             {/* show delete button for saved listing route only */}
             {
                 path === "/dashboard/savedListings" &&
@@ -154,12 +150,9 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                     <IoClose className="text-xl" />
                 </button>
             }
-
-
             {/* car details */}
-            <div className='w-full border-x-[1px] bg-lightMain border-b-[1px] border-[#e4e4e4] p-2 rounded-b-[20px] relative'>
+            <div className='w-full rounded-b-md border-x-[1px] bg-lightMain border-b-[1px] border-[#e4e4e4] p-2 relative'>
                 <h3 className='mt-3 w-full px-3 text-xl text-black font-semibold border-b-[1px] pb-2 border-[#e4e4e4]'>{singleList?.carName}</h3>
-
                 {/* showing all bids button if bids are available */}
                 {
                     path === "/dashboard/myListings" && allBids.length > 0 ?
@@ -171,16 +164,13 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                         ""
 
                 }
-
                 {/* car details */}
                 <div className='p-3 w-full flex justify-between items-center border-b-[1px] border-[#e4e4e4]'>
-
                     {/* total km */}
                     <div className='flex flex-col justify-center items-center gap-1'>
                         <IoSpeedometerOutline className='text-xl text-lightBlack' />
                         <p className='text-lightBlack font-medium text-[14px]'>{singleList?.totalRun} km</p>
                     </div>
-
                     {/* fuel */}
                     <div className='flex flex-col justify-center items-center gap-2'>
                         <BsFuelPumpDiesel className='text-xl text-lightBlack' />
@@ -193,7 +183,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                         <p className='text-lightBlack font-medium text-[14px]'>{singleList?.transmissionType}</p>
                     </div>
                 </div>
-
                 {/* price and detail button */}
                 <div className='p-3 w-full flex justify-between items-center'>
                     <p className='text-xl font-bold text-black'>${singleList?.price}</p>
@@ -205,7 +194,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                     }
                 </div>
             </div>
-
             {/* sold status if the product is sold  */}
             {
                 singleList?.sellStatus === "sold" ?
@@ -215,7 +203,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                     :
                     ""
             }
-
             {/* manage options for seller only */}
             <div className="w-full flex justify-center items-center">
                 {
@@ -227,7 +214,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                                         {
                                             dbCurrentUser?.email === singleList?.sellerEmail ?
                                                 <div className="bg-lightMain shadow-[0_0_20px_#c9c9c9] px-3 py-1 mt-3 rounded-[20px] w-full flex justify-center items-center gap-3">
-
                                                     {/* update button */}
                                                     {
                                                         !singleList?.sellStatus ?
@@ -235,7 +221,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                                                             :
                                                             ""
                                                     }
-
                                                     {/* delete button */}
                                                     <button onClick={() => handleDeleteListing(singleList?._id)}
                                                         className="text-black text-xl">
@@ -265,11 +250,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                         ""
                 }
             </div>
-
-
-
-            {/* modal to show all the bids */}
-
             <dialog id="bidsShowingModal" className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box font-body w-full flex flex-col justify-center items-center gap-2">
                     <h3 className="font-bold text-3xl text-black">All Bids</h3>
@@ -283,7 +263,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
                     <button onClick={() => document.getElementById('bidsShowingModal').close()}
                         className="bg-black text-white hover:bg-sub duration-300 px-4 py-2 rounded-[20px]">Close
                     </button>
-
                 </div>
             </dialog>
         </div>
