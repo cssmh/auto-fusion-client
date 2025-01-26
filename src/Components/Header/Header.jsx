@@ -3,7 +3,7 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuthContext from "../../Hooks/useAuthContext/useAuthContext";
 import useCurrentUser from "../../Hooks/useCurrentUser/useCurrentUser";
-import websiteLogo from "../../assets/auto.png";
+import logo from "../../assets/auto.png";
 
 const Header = () => {
     const { currentUser, signOutUser } = useAuthContext();
@@ -149,13 +149,12 @@ const Header = () => {
                     </div>
                     <Link to="/">
                         <img
-                            src={websiteLogo}
+                            src={logo}
                             alt="Website Logo"
-                            className="w-40 hover:scale-110  duration-500"
+                            className="w-28 md:w-40 hover:scale-110 duration-500"
                         />
                     </Link>
                 </div>
-
                 <div className="navbar-end flex justify-end items-center gap-4">
                     <div className="navbar-center lg:flex justify-end items-center">
                         {/* Links for desktop version */}

@@ -50,17 +50,19 @@ const AllListings = () => {
                 data-aos-once="false"
                 data-aos-anchor-placement="top-bottom">All Listings</h2>
             {/* filtering options */}
-            <div className="w-full flex flex-col md:flex-row justify-start items-start gap-2 md:justify-end md:items-center md:gap-6 lg:gap-8 mt-3">
-                {/* car condition */}
-                <div className="flex flex-row md:flex-col justify-start items-center md:items-start gap-3 md:gap-2">
-                    <label className="text-lightBlack">Car condition</label>
+            <div className="w-full flex flex-col md:flex-row justify-end items-start gap-2 md:gap-4 md:mt-4">
+                {/* Car condition */}
+                <div className="flex flex-col items-start gap-2 w-full md:w-auto">
+                    <label htmlFor="carCondition" className="text-lightBlack font-medium">Car condition</label>
                     <select
                         id='carCondition'
                         onChange={(e) => {
                             const selectedValue = e.target.value;
                             setCarCondition(selectedValue)
                         }}
-                        defaultValue={carCondition} name='carCondition' className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded-md focus:outline-none'>
+                        defaultValue={carCondition}
+                        className="w-full md:w-auto text-lightBlack border border-gray-300 px-3 py-2 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    >
                         <option disabled value="">Choose car condition</option>
                         <option value="all">All</option>
                         <option value="super fresh">Super Fresh</option>
@@ -68,15 +70,17 @@ const AllListings = () => {
                         <option value="moderate">Moderate</option>
                     </select>
                 </div>
-                {/* car brand */}
-                <div className="flex flex-row md:flex-col justify-start items-center md:items-start gap-3 md:gap-2">
-                    <label className="text-lightBlack">Car brand</label>
+
+                {/* Car brand */}
+                <div className="flex flex-col items-start gap-2 w-full md:w-auto">
+                    <label htmlFor="carBrand" className="text-lightBlack font-medium">Car brand</label>
                     <select id='carBrand' name='carBrand' defaultValue={carBrand}
                         onChange={(e) => {
                             const selectedValue = e.target.value;
                             setCarBrand(selectedValue)
                         }}
-                        className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded-md focus:outline-none'>
+                        className="w-full md:w-auto text-lightBlack border border-gray-300 px-3 py-2 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    >
                         <option disabled value="">Choose car brand</option>
                         <option value="all">All</option>
                         {
@@ -85,16 +89,18 @@ const AllListings = () => {
                         }
                     </select>
                 </div>
-                {/* car price */}
-                <div className="flex flex-row md:flex-col justify-start items-center md:items-start gap-3 md:gap-2">
-                    <label className="text-lightBlack">Price range</label>
+
+                {/* Price range */}
+                <div className="flex flex-col items-start gap-2 w-full md:w-auto">
+                    <label htmlFor="carPrice" className="text-lightBlack font-medium">Price range</label>
                     <select id='carPrice' defaultValue={carPrice} name='carPrice'
                         onChange={(e) => {
                             const selectedValue = e.target.value;
                             setCarPrice(selectedValue)
                         }}
-                        className='text-lightBlack border-[1px] border-gray px-2 py-1 rounded-md focus:outline-none'>
-                        <option disabled value={""}>Select price range</option>
+                        className="w-full md:w-auto text-lightBlack border border-gray-300 px-3 py-2 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    >
+                        <option disabled value="">Select price range</option>
                         <option value="all">All</option>
                         <option value="1000-1999">$1000 - $1999</option>
                         <option value="2000-3999">$2000 - $3999</option>
@@ -104,6 +110,7 @@ const AllListings = () => {
                     </select>
                 </div>
             </div>
+
             {
                 filteredListing.length > 0 && !filteredListingPending ?
                     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">

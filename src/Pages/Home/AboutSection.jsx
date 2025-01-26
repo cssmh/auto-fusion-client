@@ -2,9 +2,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { AiTwotoneLike, AiTwotoneRocket , AiTwotoneStar } from "react-icons/ai";
 
-
 const AboutSection = () => {
-
     AOS.init({
         offset: 120,
         duration: 1200,
@@ -13,17 +11,16 @@ const AboutSection = () => {
     });
 
     return (
-        <div className="mt-[3rem] lg:mt-[5rem] flex justify-center items-center">
-            <div className="container mx-auto p-5 lg:py-[3rem] flex flex-col justify-center items-center gap-5">
-                <h2 className="text-3xl md:text-5xl capitalize text-main font-semibold  text-center"
+        <div className="flex justify-center items-center">
+            <div className="container mx-auto p-5 lg:py-[3rem] flex flex-col justify-center items-center gap-3 md:gap-5">
+                <h2 className="text-2xl md:text-4xl capitalize text-main font-semibold  text-center"
                     data-aos="slide-down"
                     data-aos-mirror="true"
                     data-aos-once="false"
                     data-aos-anchor-placement="top-bottom">What we serve</h2>
                 <p className="md:w-2/3 text-center font-normal text-base text-lightBlack">We offer you a platform where you can buy and sell your car. A easy, reliable platform for you.</p>
-
                 {/* card container */}
-                <div className='container mx-auto gap-14 flex flex-col md:flex-row justify-center md:justify-around items-start w-full lg:w-[90%] mt-8'>
+                <div className='container mx-auto gap-7 md:gap-14 flex flex-col md:flex-row justify-center md:justify-around items-start w-full lg:w-[90%] mt-8'>
                     {/* card 1 */}
                     <div className='flex flex-col gap-3 justify-center items-start'>
                         <AiTwotoneLike className='text-third text-3xl'/>

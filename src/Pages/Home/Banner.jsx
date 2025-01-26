@@ -38,15 +38,15 @@ const Banner = () => {
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-anchor-placement="top-bottom">
-            <div className="container mx-auto px-5 pt-[70px] pb-[120px] md:pb-[350px] h-fit flex flex-col justify-start items-center font-body gap-4 relative">
-                <p className="text-main text-[18px] mt-[0px] md:mt-[50px]">The dream place for car buy and sell</p>
-                <h1 className="text-black text-4xl lg:text-7xl font-bold text-center"
+            <div className="container mx-auto px-5 pt-16 pb-36 md:pb-80 h-fit flex flex-col justify-start items-center font-body gap-4 relative">
+                <p className="text-main text-base md:text-lg mt-[0px] md:mt-[50px]">The dream place for car buy and sell</p>
+                <h1 className="text-black text-3xl md:text-4xl lg:text-7xl font-bold text-center"
                     data-aos="zoom-in"
                     data-aos-mirror="true"
                     data-aos-once="false"
                     data-aos-anchor-placement="top-bottom">Find Your Dream Car</h1>
                 <form onSubmit={handleHomeSearch}
-                    className='w-[90%] md:w-[98%] lg:w-[80%] flex flex-col md:flex-row justify-center md:justify-between items-center mt-3 md:mt-5 bg-white p-2 md:p-4 shadow-[0_0_70px_#cfcfcf] rounded-lg md:rounded-[80px] gap-4 md:gap-0 text-[16px] lg:text-[18px]'>
+                    className='w-full md:w-[98%] lg:w-[80%] flex flex-col md:flex-row justify-center md:justify-between items-center mt-3 md:mt-5 bg-white p-2 md:p-4 shadow-[0_0_70px_#cfcfcf] rounded-lg md:rounded-[80px] gap-4 md:gap-0 text-[16px] lg:text-[18px]'>
                     <select id='carCondition' defaultValue={""} name='carCondition' className='px-4 py-3 md:py-2 border-[1px] md:border-none border-gray w-full md:w-fit flex justify-between items-center rounded-[3px] focus:outline-none'>
                         <option disabled value="">Choose car condition</option>
                         <option value="super fresh">Super Fresh</option>
@@ -68,7 +68,7 @@ const Banner = () => {
                         <option value="6000-7999">$6000 - $7999</option>
                         <option value="8000+">$8000 - above</option>
                     </select>
-                    <button type="submit" className='bg-sub text-white p-2 w-full md:w-fit md:p-4 lg:p-5 rounded-lg md:rounded-[100%] font-bold hover:bg-white hover:text-sub duration-500 flex justify-center items-center'>
+                    <button type="submit" className='bg-sub text-white p-3 w-full md:w-fit md:p-4 lg:p-5 rounded-lg md:rounded-[100%] font-bold hover:bg-white hover:text-sub duration-500 flex justify-center items-center'>
                         <FaSearch className='text-xl' />
                     </button>
                 </form>

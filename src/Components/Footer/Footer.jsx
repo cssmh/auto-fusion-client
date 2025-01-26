@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="bg-main mt-[6rem]">
             <footer className="footer footer-center p-10 text-primary-content">
                 <aside>
-                    <img src={logo} className='w-64' alt=""
+                    <img src={logo} className='w-32 md:w-64' alt=""
                         data-aos="zoom-in"
                         data-aos-mirror="true"
                         data-aos-once="false"

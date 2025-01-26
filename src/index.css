@@ -105,9 +105,6 @@ body {
   opacity: 0.4;
 }
 
-
-
-
 /* the ":root" and [data-theme="dark"] - are not being used in the website, but this will be helpful for the future use in any project. So, I'm keeping it. */
 :root {
   --second_color: #060045;
