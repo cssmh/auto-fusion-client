@@ -2,7 +2,6 @@
 
 <!-- ![Website's hero section](./src/assets/heroSection.png) -->
 
-
 <!-- # Technologies used:
 
 1.  HTML

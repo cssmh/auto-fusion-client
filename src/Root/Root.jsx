@@ -3,13 +3,13 @@ import Header from "../Components/Header/Header.jsx";
 import Footer from "../Components/Footer/Footer";
 
 const Root = () => {
-    return (
-        <div className="font-heading">
-            <Header />
-            <Outlet />
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="font-heading">
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  );
 };
 
 export default Root;

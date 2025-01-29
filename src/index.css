@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -20,28 +20,28 @@ body {
 
 /* Add this style for the underline */
 .active-nav-menu::after {
-  content: '';
+  content: "";
   display: block;
   width: 50%;
   height: 3px;
-  background-color: #4E6CFB;
+  background-color: #4e6cfb;
 }
 
 .single-nav-menu::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 3px;
-  background-color: #4E6CFB;
+  background-color: #4e6cfb;
   transition: all 0.3s linear;
 }
 
 .single-nav-menu:hover::after {
-  content: '';
+  content: "";
   display: block;
   width: 50%;
   height: 3px;
-  background-color: #4E6CFB;
+  background-color: #4e6cfb;
 }
 
 .link-style {
@@ -91,14 +91,12 @@ body {
   background-color: #ebebeb;
 }
 
-
 .listing-image {
   width: 100%;
   height: 0;
   background: #ffffffcb;
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
-
 
 .listing-item:hover .listing-image {
   height: 100%;

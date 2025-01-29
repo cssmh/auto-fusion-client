@@ -27,17 +27,21 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/allListings",
-        element: <AllListings />
+        element: <AllListings />,
       },
       {
         path: "/details/:id",
-        element: <PrivateRoute><ListingDetails /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <ListingDetails />
+          </PrivateRoute>
+        ),
       },
-    ]
+    ],
   },
   // sign up and login route
   {
@@ -46,54 +50,70 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LogIn />
+    element: <LogIn />,
   },
 
   // dashboard router
   {
     path: "dashboard",
-    element: <PrivateRoute><Dashboard /></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       // admin dashboard router
       {
         path: "statistics",
-        element: <AdminRoute><Statistics /></AdminRoute>
+        element: (
+          <AdminRoute>
+            <Statistics />
+          </AdminRoute>
+        ),
       },
       {
         path: "allUsers",
-        element: <AdminRoute><AllUsers /></AdminRoute>
+        element: (
+          <AdminRoute>
+            <AllUsers />
+          </AdminRoute>
+        ),
       },
       {
         path: "adminAllProducts",
-        element: <AdminRoute><AdminAllProducts /></AdminRoute>
+        element: (
+          <AdminRoute>
+            <AdminAllProducts />
+          </AdminRoute>
+        ),
       },
       // user dashboard router
       {
         path: "sellCar",
-        element: <SellYourCar />
+        element: <SellYourCar />,
       },
       {
         path: "profile",
-        element: <UserProfile />
+        element: <UserProfile />,
       },
       {
         path: "myListings",
-        element: <MyListings />
+        element: <MyListings />,
       },
       {
         path: "updateListing/:id",
-        element: <UpdateListing />
+        element: <UpdateListing />,
       },
       {
         path: "savedListings",
-        element: <SavedListings />
+        element: <SavedListings />,
       },
       {
         path: "bids/:id",
-        element: <BidsForAListing />
-      }
-    ]
-  }
+        element: <BidsForAListing />,
+      },
+    ],
+  },
 ]);
 
 export default router;

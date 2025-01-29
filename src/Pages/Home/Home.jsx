@@ -7,17 +7,17 @@ import TopBidListings from "./TopBidListings";
 import UserActivity from "./UserActivity";
 
 const Home = () => {
-    return (
-        <>
-            <Banner />
-            <UserActivity />
-            <AboutSection />
-            <FeaturedCar />
-            <Testimonial />
-            <TopBidListings />
-            <Newsletter />
-        </>
-    );
+  return (
+    <>
+      <Banner />
+      <UserActivity />
+      <AboutSection />
+      <FeaturedCar />
+      <Testimonial />
+      <TopBidListings />
+      <Newsletter />
+    </>
+  );
 };
 
 export default Home;
