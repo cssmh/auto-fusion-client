@@ -12,13 +12,11 @@ import { createContext, useEffect, useState } from "react";
 import app from "./firebase.config";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
-// create auth export authContext, and get google provider
 const auth = getAuth(app);
 export const AuthContext = createContext("");
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  // hooks
   const [currentUser, setCurrentUser] = useState("");
   const [authLoading, setAuthLoading] = useState(true);
   const axiosPublic = useAxiosPublic();

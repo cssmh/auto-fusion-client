@@ -62,6 +62,23 @@ const Testimonial = () => {
                 <p className="w-full text-white font-medium text-[18px]">
                   {singleFeedback?.feedBack}
                 </p>
+                {allFeedbacks.map((singleFeedback) => (
+                  <div key={singleFeedback?._id}>
+                    <button
+                      onClick={() => setActiveFeedback(singleFeedback?._id)}
+                    >
+                      <img
+                        src={singleFeedback?.feedbackProviderPhoto}
+                        alt=""
+                        className={`w-[32px] h-[32px] md:w-[60px] p-[2px] md:h-[60px] bg-cover border duration-500 rounded-full ${
+                          activeFeedback === singleFeedback?._id
+                            ? "border-sub"
+                            : "border-[#ffffff00]"
+                        }`}
+                      />
+                    </button>
+                  </div>
+                ))}
                 <p className="absolute bottom-[40px] text-white font-semibold text-xl right-[80px]">
                   - {singleFeedback?.feedbackProvider}
                 </p>
@@ -74,23 +91,6 @@ const Testimonial = () => {
                 />
               </div>
             )}
-          </div>
-        ))}
-      </div>
-      <div className="w-full flex justify-center items-center gap-1 md:gap-8 lg:gap-10 mt-5">
-        {allFeedbacks.map((singleFeedback) => (
-          <div key={singleFeedback?._id}>
-            <button onClick={() => setActiveFeedback(singleFeedback?._id)}>
-              <img
-                src={singleFeedback?.feedbackProviderPhoto}
-                alt=""
-                className={`w-[65px] h-[65px] md:w-[80px] p-[2px] md:h-[80px] bg-cover border duration-500 rounded-full ${
-                  activeFeedback === singleFeedback?._id
-                    ? "border-sub"
-                    : "border-[#ffffff00]"
-                }`}
-              />
-            </button>
           </div>
         ))}
       </div>

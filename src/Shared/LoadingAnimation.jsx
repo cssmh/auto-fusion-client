@@ -1,9 +1,10 @@
-const loadingAnimation = "https://i.ibb.co/F7gnT4D/loading-Animation.gif";
+import Lottie from "lottie-react";
+import lottie from "../assets/loading.json";
 
 const LoadingAnimation = () => {
   return (
-    <div className="h-[100vh] w-full flex justify-center items-center">
-      <img src={loadingAnimation} alt="Loading Animation" />
+    <div className="h-[81vh] w-full flex justify-center items-center">
+      <Lottie animationData={lottie} className="w-40" />
     </div>
   );
 };
