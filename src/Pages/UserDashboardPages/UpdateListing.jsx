@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Flip, ToastContainer, toast } from "react-toastify";
-import useCurrentUser from "../../../../Hooks/useCurrentUser/useCurrentUser";
-import LoadingAnimation from "../../../../Components/Shared/LoadingAnimation/LoadingAnimation";
 import { FaUpload } from "react-icons/fa";
-import useAxiosPublic from "../../../../Hooks/useAxiosPublic/useAxiosPublic";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useCurrentUser from "../../Hooks/useCurrentUser";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import LoadingAnimation from "../../Shared/LoadingAnimation";
 
 const imgHostingKey = import.meta.env.VITE_imgBbKey;
 const imgUploadUrl = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`;
@@ -130,9 +130,7 @@ const UpdateListing = () => {
   });
 
   // conditional loading
-  if (dbCurrentUserPending || isPending) {
-    return <LoadingAnimation />;
-  }
+  if (dbCurrentUserPending || isPending) return <LoadingAnimation />;
 
   // get the product details
   const {

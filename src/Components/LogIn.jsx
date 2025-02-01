@@ -4,7 +4,7 @@ import { MdHome } from "react-icons/md";
 import { useContext, useState } from "react";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { AuthContext } from "../../Context/AuthContext/AuthProvider";
+import { AuthContext } from "../Shared/AuthProvider";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const LogIn = () => {

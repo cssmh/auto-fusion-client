@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxiosSecure";
-import useCurrentUser from "../../../../Hooks/useCurrentUser/useCurrentUser";
-import LoadingAnimation from "../../../../Components/Shared/LoadingAnimation/LoadingAnimation";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import SingleListing from "../../../../Components/Shared/SingleListing/SingleListing";
 import Lottie from "lottie-react";
-import carLottie from "../../../../assets/carLottie.json";
+import carLottie from "../../assets/carLottie.json";
+import useCurrentUser from "../../Hooks/useCurrentUser";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import SingleListing from "../../Shared/SingleListing";
+import LoadingAnimation from "../../Shared/LoadingAnimation";
 
 const SavedListings = () => {
   // hooks and custom hooks
@@ -32,9 +32,7 @@ const SavedListings = () => {
   });
 
   // conditional loading
-  if (savedListingsPending) {
-    return <LoadingAnimation />;
-  }
+  if (savedListingsPending) return <LoadingAnimation />;
 
   // animation
   AOS.init({
@@ -73,7 +71,7 @@ const SavedListings = () => {
               key={singleList?._id}
               singleList={singleList}
               listingsRefetch={savedListingsRefetch}
-            ></SingleListing>
+            />
           ))}
         </div>
       )}

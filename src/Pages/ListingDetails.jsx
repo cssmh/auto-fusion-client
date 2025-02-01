@@ -1,18 +1,18 @@
 import { useParams } from "react-router-dom";
-import useAxiosPublic from "../../Hooks/useAxiosPublic/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import LoadingAnimation from "../../Components/Shared/LoadingAnimation/LoadingAnimation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaUser, FaPhone, FaStar, FaRegStar } from "react-icons/fa";
 import { SiAdguard } from "react-icons/si";
 import { useEffect, useState } from "react";
-import useScrollToTop from "../../Hooks/useScrollToTop/useScrollToTop";
-import useCurrentUser from "../../Hooks/useCurrentUser/useCurrentUser";
-import useAxiosSecure from "../../Hooks/useAxiosSecure/useAxiosSecure";
 import { AiTwotoneLike } from "react-icons/ai";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useScrollToTop from "../Hooks/useScrollToTop";
+import useCurrentUser from "../Hooks/useCurrentUser";
+import LoadingAnimation from "../Shared/LoadingAnimation";
 
 const ListingDetails = () => {
   // hooks and custom hooks
@@ -125,10 +125,7 @@ const ListingDetails = () => {
       });
   };
 
-  // conditional loading
-  if (isPending || dbCurrentUserPending) {
-    return <LoadingAnimation />;
-  }
+  if (isPending || dbCurrentUserPending) return <LoadingAnimation />;
 
   // getting every details of singleListing
   const {

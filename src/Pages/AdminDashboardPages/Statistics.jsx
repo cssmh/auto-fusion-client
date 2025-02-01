@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import useAllListings from "../../../../Hooks/useAllListings/useAllListings";
-import useAllUsers from "../../../../Hooks/useAllUsers/useAllUsers";
+import useAllListings from "../../Hooks/useAllListings";
+import useAllUsers from "../../Hooks/useAllUsers";
 
 const Statistics = () => {
   // hooks and custom hooks

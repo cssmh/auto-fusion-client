@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import SingleListing from "../../Components/Shared/SingleListing";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import SingleListing from "../../Shared/SingleListing";
 
 const TopBidListings = () => {
   const axiosPublic = useAxiosPublic();

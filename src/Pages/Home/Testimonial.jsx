@@ -1,11 +1,11 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { FaQuoteLeft } from "react-icons/fa";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Testimonial = () => {
   const axiosPublic = useAxiosPublic();

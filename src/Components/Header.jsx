@@ -1,9 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import useAuthContext from "../../Hooks/useAuthContext/useAuthContext";
+import logo from "../assets/auto.png";
+import useAuthContext from "../Hooks/useAuthContext";
 import useCurrentUser from "../Hooks/useCurrentUser";
-import logo from "../../assets/auto.png";
 
 const Header = () => {
   const { currentUser, signOutUser } = useAuthContext();

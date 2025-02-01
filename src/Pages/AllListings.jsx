@@ -1,12 +1,12 @@
-import LoadingAnimation from "../../Components/Shared/LoadingAnimation/LoadingAnimation";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import SingleListing from "../../Components/Shared/SingleListing/SingleListing";
 import { useEffect, useState } from "react";
-import useScrollToTop from "../../Hooks/useScrollToTop/useScrollToTop";
-import useFilteredListings from "../../Hooks/useFilteredListings/useFilteredListings";
 import Lottie from "lottie-react";
-import carLottie from "../../assets/carLottie.json";
+import carLottie from "../assets/carLottie.json";
+import useScrollToTop from "../Hooks/useScrollToTop";
+import useFilteredListings from "../Hooks/useFilteredListings";
+import LoadingAnimation from "../Shared/LoadingAnimation";
+import SingleListing from "../Shared/SingleListing";
 
 const allCarBrands = [
   "Acura",
@@ -84,9 +84,7 @@ const AllListings = () => {
   }, [scrollToTop]);
 
   // conditional loading
-  if (filteredListingPending) {
-    return <LoadingAnimation />;
-  }
+  if (filteredListingPending) return <LoadingAnimation />;
 
   // set total pages
   const totalPages = [...Array(pages).keys()];
@@ -190,7 +188,6 @@ const AllListings = () => {
           </select>
         </div>
       </div>
-
       {filteredListing.length > 0 && !filteredListingPending ? (
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-4">
           {filteredListing.map((singleList, index) => (
@@ -198,7 +195,7 @@ const AllListings = () => {
               key={index}
               singleList={singleList}
               listingsRefetch={filteredListingRefetch}
-            ></SingleListing>
+            />
           ))}
         </div>
       ) : (

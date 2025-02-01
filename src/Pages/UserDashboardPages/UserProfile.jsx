@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
-import LoadingAnimation from "../../../../Components/Shared/LoadingAnimation/LoadingAnimation";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxiosSecure";
-import useCurrentUser from "../../../../Hooks/useCurrentUser/useCurrentUser";
 import { CgDanger, CgCheckO } from "react-icons/cg";
 import { Flip, ToastContainer, toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
 import { FaStar } from "react-icons/fa";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useCurrentUser from "../../Hooks/useCurrentUser";
+import LoadingAnimation from "../../Shared/LoadingAnimation";
 
 const UserProfile = () => {
   // hooks and custom hooks
@@ -30,9 +30,7 @@ const UserProfile = () => {
   });
 
   // conditional loading
-  if (dbCurrentUserPending || feedbackPending) {
-    return <LoadingAnimation />;
-  }
+  if (dbCurrentUserPending || feedbackPending) return <LoadingAnimation />;
 
   // handle request verification
   const handleVerificationRequest = () => {

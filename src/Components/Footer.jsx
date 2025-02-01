@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import logo from "../../assets/bg.png";
+import logo from "../assets/bg.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

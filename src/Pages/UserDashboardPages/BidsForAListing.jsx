@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import useBids from "../../../../Hooks/useBids/useBids";
-import LoadingAnimation from "../../../../Components/Shared/LoadingAnimation/LoadingAnimation";
 import { useEffect } from "react";
-import useScrollToTop from "../../../../Hooks/useScrollToTop/useScrollToTop";
+import useBids from "../../Hooks/useBids";
+import useScrollToTop from "../../Hooks/useScrollToTop";
+import LoadingAnimation from "../../Shared/LoadingAnimation";
 
 const BidsForAListing = () => {
   // hooks and custom hooks
@@ -14,9 +14,7 @@ const BidsForAListing = () => {
     scrollToTop();
   }, [scrollToTop]);
 
-  if (bidsPending) {
-    return <LoadingAnimation />;
-  }
+  if (bidsPending) return <LoadingAnimation />;
 
   return (
     <div className="flex flex-col justify-start items-center w-full h-full">

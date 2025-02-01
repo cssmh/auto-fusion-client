@@ -4,10 +4,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useRef, useState } from "react";
 import { FaUpload } from "react-icons/fa";
-import useAxiosPublic from "../../../../Hooks/useAxiosPublic/useAxiosPublic";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxiosSecure";
-import useCurrentUser from "../../../../Hooks/useCurrentUser/useCurrentUser";
-import LoadingAnimation from "../../../../Components/Shared/LoadingAnimation/LoadingAnimation";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useCurrentUser from "../../Hooks/useCurrentUser";
+import LoadingAnimation from "../../Shared/LoadingAnimation";
 
 // image hosting (imgBB) key and url
 const imgHostingKey = import.meta.env.VITE_imgBbKey;
@@ -106,9 +106,7 @@ const SellYourCar = () => {
   ];
 
   // conditional loading
-  if (dbCurrentUserPending) {
-    return <LoadingAnimation />;
-  }
+  if (dbCurrentUserPending) return <LoadingAnimation />;
 
   // get today's date
   const todayDate = new Date().toISOString().split("T")[0];

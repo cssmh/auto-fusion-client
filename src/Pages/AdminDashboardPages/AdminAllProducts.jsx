@@ -1,12 +1,12 @@
 import { useMemo } from "react";
-import LoadingAnimation from "../../../../Components/Shared/LoadingAnimation/LoadingAnimation";
 import {
   useReactTable,
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
 } from "@tanstack/react-table";
-import useAllListings from "../../../../Hooks/useAllListings/useAllListings";
+import useAllListings from "../../Hooks/useAllListings";
+import LoadingAnimation from "../../Shared/LoadingAnimation";
 
 const AdminAllProducts = () => {
   // hooks and custom hooks
@@ -94,9 +94,7 @@ const AdminAllProducts = () => {
   });
 
   // conditional loading
-  if (allListingsPending) {
-    return <LoadingAnimation />;
-  }
+  if (allListingsPending) return <LoadingAnimation />;
 
   return (
     <div className="lg:min-h-[100vh] p-5 flex flex-col container mx-auto gap-8 justify-start items-center">

@@ -6,14 +6,14 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import useAuthContext from "../Hooks/useAuthContext/useAuthContext";
 import { MdHome } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
-import useIsAdmin from "../Hooks/useIsAdmin";
 import { useEffect } from "react";
+import logo from "../assets/auto.png";
+import useAuthContext from "../Hooks/useAuthContext";
+import useIsAdmin from "../Hooks/useIsAdmin";
 import useCurrentUser from "../Hooks/useCurrentUser";
-import LoadingAnimation from "../Components/Shared/LoadingAnimation";
-import logo from "../../assets/auto.png";
+import LoadingAnimation from "../Shared/LoadingAnimation";
 
 const Dashboard = () => {
   const { signOutUser, authLoading } = useAuthContext();
@@ -144,9 +144,7 @@ const Dashboard = () => {
     </>
   );
 
-  if (dbCurrentUserPending || authLoading) {
-    return <LoadingAnimation />;
-  }
+  if (dbCurrentUserPending || authLoading) return <LoadingAnimation />;
 
   return (
     <div className="font-heading">

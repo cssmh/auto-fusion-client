@@ -3,10 +3,10 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useState } from "react";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import useAuthContext from "../../Hooks/useAuthContext/useAuthContext";
 import { MdHome } from "react-icons/md";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { FaUpload } from "react-icons/fa";
+import useAuthContext from "../Hooks/useAuthContext";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 // image hosting (imgBB) key and url
 const imgHostingKey = import.meta.env.VITE_imgBbKey;

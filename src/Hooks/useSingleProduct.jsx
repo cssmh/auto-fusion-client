@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useSingleProduct = (id) => {
   //hooks and custom hooks

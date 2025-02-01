@@ -1,6 +1,6 @@
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure/useAxiosSecure";
-import LoadingAnimation from "../../../../Components/Shared/LoadingAnimation/LoadingAnimation";
-import useAllUsers from "../../../../Hooks/useAllUsers/useAllUsers";
+import useAllUsers from "../../Hooks/useAllUsers";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import LoadingAnimation from "../../Shared/LoadingAnimation";
 
 const AllUsers = () => {
   // hooks and custom hooks
@@ -33,9 +33,7 @@ const AllUsers = () => {
       .catch((err) => console.log(err.code + "||" + err.message));
   };
 
-  if (allUsersPending) {
-    return <LoadingAnimation />;
-  }
+  if (allUsersPending) return <LoadingAnimation />;
 
   return (
     <div className="lg:min-h-[100vh] flex flex-col justify-start items-center gap-5 w-full">

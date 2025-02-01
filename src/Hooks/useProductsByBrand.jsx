@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../useAxiosPublic/useAxiosPublic";
+import useAxiosPublic from "./useAxiosPublic";
 import { useParams } from "react-router-dom";
 
 const useProductsByBrand = () => {

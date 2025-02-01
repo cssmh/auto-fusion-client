@@ -4,16 +4,16 @@ import {
   RiEdit2Fill,
   RiCheckboxCircleFill,
 } from "react-icons/ri";
-import useCurrentUser from "../../Hooks/useCurrentUser";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { IoClose, IoSpeedometerOutline } from "react-icons/io5";
 import { BsFuelPumpDiesel } from "react-icons/bs";
 import { TbManualGearbox } from "react-icons/tb";
 import { GoArrowUpRight } from "react-icons/go";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import useBids from "../../../Hooks/useBids/useBids";
+import useCurrentUser from "../Hooks/useCurrentUser";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useBids from "../Hooks/useBids";
 
 const SingleListing = ({ singleList, listingsRefetch }) => {
   // hooks

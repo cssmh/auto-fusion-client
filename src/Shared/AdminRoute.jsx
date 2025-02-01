@@ -1,17 +1,14 @@
 import { Navigate } from "react-router-dom";
-import LoadingAnimation from "../../Components/Shared/LoadingAnimation/LoadingAnimation";
-import useAuthContext from "../../Hooks/useAuthContext/useAuthContext";
-import useIsAdmin from "../../Hooks/useIsAdmin/useIsAdmin";
+import useIsAdmin from "../Hooks/useIsAdmin";
+import useAuthContext from "../Hooks/useAuthContext";
+import LoadingAnimation from "./LoadingAnimation";
 
 const AdminRoute = ({ children }) => {
-  // hooks and custom hooks
   const { isAdminPending, isAdmin } = useIsAdmin();
   const { currentUser, authLoading } = useAuthContext();
 
   // waiting for logging user and admin check
-  if (isAdminPending || authLoading) {
-    return <LoadingAnimation />;
-  }
+  if (isAdminPending || authLoading)  return <LoadingAnimation />;
 
   // if user is admin send to dashboard
   if (currentUser && isAdmin) {
