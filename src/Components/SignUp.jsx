@@ -5,7 +5,7 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuthContext from "../../Hooks/useAuthContext/useAuthContext";
 import { MdHome } from "react-icons/md";
-import useAxiosPublic from "../../Hooks/useAxiosPublic/useAxiosPublic";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { FaUpload } from "react-icons/fa";
 
 // image hosting (imgBB) key and url

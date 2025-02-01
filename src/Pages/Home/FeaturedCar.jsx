@@ -1,9 +1,9 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import useAxiosPublic from "../../Hooks/useAxiosPublic/useAxiosPublic";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import SingleListing from "../../Components/Shared/SingleListing/SingleListing";
+import SingleListing from "../../Components/Shared/SingleListing";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const FeaturedCar = () => {

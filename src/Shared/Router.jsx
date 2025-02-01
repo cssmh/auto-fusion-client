@@ -1,28 +1,28 @@
 import { createBrowserRouter } from "react-router-dom";
-import Root from "../Root/Root";
-import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import MainLayout from "../Root/MainLayout";
+import ErrorPage from "../Components/ErrorPage";
 import Home from "../Pages/Home/Home";
-import SignUp from "../Authentication/SignUp/SignUp";
-import LogIn from "../Authentication/LogIn/LogIn";
-import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import Dashboard from "../Root/Dashboard/Dashboard";
-import Statistics from "../Pages/DashboardPages/AdminDashboardPages/Statistics/Statistics";
-import AdminAllProducts from "../Pages/DashboardPages/AdminDashboardPages/AdminAllProducts/AdminAllProducts";
-import AdminRoute from "./AdminRoute/AdminRoute";
-import SellYourCar from "../Pages/DashboardPages/UserDashboardPages/SellYourCar/SellYourCar";
-import UserProfile from "../Pages/DashboardPages/UserDashboardPages/UserProfile/UserProfile";
-import AllUsers from "../Pages/DashboardPages/AdminDashboardPages/AllUsers/AllUsers";
-import MyListings from "../Pages/DashboardPages/UserDashboardPages/MyListings/MyListings";
-import AllListings from "../Pages/AllListings/AllListings";
-import ListingDetails from "../Pages/ListingDetails/ListingDetails";
-import UpdateListing from "../Pages/DashboardPages/UserDashboardPages/UpdateListing/UpdateListing";
-import SavedListings from "../Pages/DashboardPages/UserDashboardPages/SavedListings/SavedListings";
-import BidsForAListing from "../Pages/DashboardPages/UserDashboardPages/BidsForAListing/BidsForAListing";
+import AllListings from "../Pages/AllListings";
+import PrivateRoute from "./PrivateRoute";
+import ListingDetails from "../Pages/ListingDetails";
+import SignUp from "../Components/SignUp";
+import LogIn from "../Components/LogIn";
+import Dashboard from "../Root/Dashboard";
+import AdminRoute from "./AdminRoute";
+import Statistics from "../Pages/AdminDashboardPages/Statistics";
+import AllUsers from "../Pages/AdminDashboardPages/AllUsers";
+import AdminAllProducts from "../Pages/AdminDashboardPages/AdminAllProducts";
+import SellYourCar from "../Pages/UserDashboardPages/SellYourCar";
+import UserProfile from "../Pages/UserDashboardPages/UserProfile";
+import MyListings from "../Pages/UserDashboardPages/MyListings";
+import UpdateListing from "../Pages/UserDashboardPages/UpdateListing";
+import SavedListings from "../Pages/UserDashboardPages/SavedListings";
+import BidsForAListing from "../Pages/UserDashboardPages/BidsForAListing";
 
-const router = createBrowserRouter([
+const Router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <MainLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -43,7 +43,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // sign up and login route
   {
     path: "/signUp",
     element: <SignUp />,
@@ -52,7 +51,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <LogIn />,
   },
-
   // dashboard router
   {
     path: "dashboard",
@@ -116,4 +114,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router;
+export default Router;

@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuthContext from "../../Hooks/useAuthContext/useAuthContext";
-import useCurrentUser from "../../Hooks/useCurrentUser/useCurrentUser";
+import useCurrentUser from "../Hooks/useCurrentUser";
 import logo from "../../assets/auto.png";
 
 const Header = () => {

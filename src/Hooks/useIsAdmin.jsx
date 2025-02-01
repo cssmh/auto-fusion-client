@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuthContext from "../useAuthContext/useAuthContext";
-import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useIsAdmin = () => {
   // hooks and custom hooks

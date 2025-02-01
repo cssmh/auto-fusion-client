@@ -4,9 +4,9 @@ import {
   RiEdit2Fill,
   RiCheckboxCircleFill,
 } from "react-icons/ri";
-import useCurrentUser from "../../../Hooks/useCurrentUser/useCurrentUser";
+import useCurrentUser from "../../Hooks/useCurrentUser";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure/useAxiosSecure";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { IoClose, IoSpeedometerOutline } from "react-icons/io5";
 import { BsFuelPumpDiesel } from "react-icons/bs";
 import { TbManualGearbox } from "react-icons/tb";

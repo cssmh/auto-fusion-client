@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Header from "../Components/Header/Header.jsx";
-import Footer from "../Components/Footer/Footer";
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
-const Root = () => {
+const MainLayout = () => {
   return (
     <div className="font-heading">
       <Header />
@@ -12,4 +12,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default MainLayout;

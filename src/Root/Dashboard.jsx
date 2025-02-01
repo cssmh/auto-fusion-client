@@ -6,13 +6,13 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import useAuthContext from "../../Hooks/useAuthContext/useAuthContext";
+import useAuthContext from "../Hooks/useAuthContext/useAuthContext";
 import { MdHome } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
-import useIsAdmin from "../../Hooks/useIsAdmin/useIsAdmin";
+import useIsAdmin from "../Hooks/useIsAdmin";
 import { useEffect } from "react";
-import useCurrentUser from "../../Hooks/useCurrentUser/useCurrentUser";
-import LoadingAnimation from "../../Components/Shared/LoadingAnimation/LoadingAnimation";
+import useCurrentUser from "../Hooks/useCurrentUser";
+import LoadingAnimation from "../Components/Shared/LoadingAnimation";
 import logo from "../../assets/auto.png";
 
 const Dashboard = () => {

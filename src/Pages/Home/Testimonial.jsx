@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import useAxiosPublic from "../../Hooks/useAxiosPublic/useAxiosPublic";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { FaQuoteLeft } from "react-icons/fa";
