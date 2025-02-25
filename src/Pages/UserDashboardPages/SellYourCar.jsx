@@ -1,7 +1,4 @@
-import { Flip, ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { toast } from "react-toastify";
 import { useRef, useState } from "react";
 import { FaUpload } from "react-icons/fa";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
@@ -202,56 +199,20 @@ const SellYourCar = () => {
               .then((res) => {
                 const data = res.data;
                 if (data.insertedId) {
-                  successNotify();
+                  toast.success("New product added successfully!");
                   addingForm.current.reset();
                 }
               })
               // db product posting failure
               .catch((err) => {
-                failureNotify(err.code);
+                toast.error(err.code);
               });
           }
         })
         // imgbb file upload error
-        .catch((err) => failureNotify(err.code + "|" + err.message));
+        .catch((err) => toast.error(err.code + "|" + err.message));
     }
   };
-
-  // Successful product adding message
-  const successNotify = () =>
-    toast.success("New product added successfully!", {
-      position: "top-center",
-      autoClose: 1800,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
-
-  // Failed product adding message
-  const failureNotify = (errorMessage) =>
-    toast.error(`${errorMessage}`, {
-      position: "top-center",
-      autoClose: 1800,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
-
-  // animation
-  AOS.init({
-    offset: 120,
-    duration: 1500,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
@@ -573,7 +534,6 @@ const SellYourCar = () => {
           className="w-full lg:w-2/3 px-5 py-3 bg-sub mt-5 rounded-md text-white hover:bg-main duration-300  font-semibold text-xl  cursor-pointer"
         />
       </form>
-      <ToastContainer closeButton={false} />
     </div>
   );
 };

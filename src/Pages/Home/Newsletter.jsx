@@ -1,6 +1,4 @@
 import AOS from "aos";
-import "aos/dist/aos.css";
-
 const Newsletter = () => {
   AOS.init({
     offset: 120,

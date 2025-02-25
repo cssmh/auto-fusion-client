@@ -1,5 +1,4 @@
 import AOS from "aos";
-import "aos/dist/aos.css";
 import { useQuery } from "@tanstack/react-query";
 import Lottie from "lottie-react";
 import carLottie from "../../assets/carLottie.json";

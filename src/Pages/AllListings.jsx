@@ -1,5 +1,4 @@
 import AOS from "aos";
-import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import carLottie from "../assets/carLottie.json";

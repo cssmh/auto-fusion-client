@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
@@ -24,7 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       closeOnClick={true}
       pauseOnHover={false}
       draggable={true}
-      theme="colored"
+      // theme="colored"
     />
   </React.StrictMode>
 );

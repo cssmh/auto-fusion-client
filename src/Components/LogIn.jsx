@@ -2,43 +2,35 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsFillEyeFill, BsFillEyeSlashFill, BsGoogle } from "react-icons/bs";
 import { MdHome } from "react-icons/md";
 import { useContext, useState } from "react";
-import { ToastContainer, toast, Zoom } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { AuthContext } from "../Shared/AuthProvider";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const LogIn = () => {
-  // hooks and custom hooks
   const { createNewUserByGoogle, accessExistingUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
-
-  // get todays date
   const todayDate = new Date().toISOString().split("T")[0];
-
-  // Toggle between show password and hide password
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  //Login using email-password
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     accessExistingUser(email, password)
       .then(() => {
-        successNotify();
-        // Redirect to path after login
-        navigate(location?.state ? location.state : "/");
+        toast.success("Login successful!"),
+          navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         const errorMessage = error.message;
         const errorCode = error.code;
-        failedNotify(errorCode + "|" + errorMessage);
+        toast.error(errorCode + "|" + errorMessage);
       });
   };
 
@@ -76,49 +68,21 @@ const LogIn = () => {
             // database post error
             .catch((err) => {
               const error = err.code + "-" + err.message;
-              failedNotify(error);
+              toast.error(error);
             });
-          successNotify();
-          navigate(location?.state ? location.state : "/");
+          toast.success("Login successful!"),
+            navigate(location?.state ? location.state : "/");
 
-          successNotify();
-          // Redirect to path after login
-          navigate(location?.state ? location.state : "/");
+          toast.success("Login successful!"),
+            // Redirect to path after login
+            navigate(location?.state ? location.state : "/");
         }
       })
       // firebase google-login error
       .catch((error) => {
-        failedNotify(error.code);
+        toast.error(error.code);
       });
   };
-
-  // Success message for successful login
-  const successNotify = () =>
-    toast.success("Login successful!", {
-      position: "top-center",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Zoom,
-    });
-
-  // Failed notification for failed login (email-password)
-  const failedNotify = (errorMessage) =>
-    toast.error(`${errorMessage}`, {
-      position: "top-center",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Zoom,
-    });
 
   return (
     <div>
@@ -162,8 +126,6 @@ const LogIn = () => {
               value="Login"
               className="bg-main font-bold  px-4 py-2 rounded text-white hover:bg-sub duration-300 w-full"
             />
-
-            <ToastContainer closeButton={false} />
           </form>
 
           {/* back to homepage button */}

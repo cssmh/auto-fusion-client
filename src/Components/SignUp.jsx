@@ -1,8 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useState } from "react";
-import { ToastContainer, toast, Zoom } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { MdHome } from "react-icons/md";
 import { FaUpload } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
@@ -13,7 +12,6 @@ const imgHostingKey = import.meta.env.VITE_imgBbKey;
 const imgUploadUrl = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`;
 
 const SignUp = () => {
-  // hooks and custom hooks
   const { createNewUser, updateProfileInfo } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
@@ -100,26 +98,26 @@ const SignUp = () => {
                     .then((res) => {
                       const data = res.data;
                       if (data.insertedId) {
-                        successNotify();
-                        updateProfileInfo(currentUsersInfo, userName, photo);
+                        toast.success("Account creation successfull");
+                        updateProfileInfo(userName, photo);
                         navigate(location?.state ? location.state : "/");
                       }
                     })
                     // database post error
                     .catch((err) => {
                       const error = err.code + "-" + err.message;
-                      failedNotify(error);
+                      toast.error(error);
                     });
                 }
               })
               // firebase account creation error
               .catch((error) => {
-                failedNotify(error.code + "-" + error.message);
+                toast.error(error.code + "-" + error.message);
               });
           }
         })
         // imgbb file upload error
-        .catch((err) => failedNotify(err.code + "|" + err.message));
+        .catch((err) => toast.error(err.code + "|" + err.message));
     }
   };
 
@@ -127,34 +125,6 @@ const SignUp = () => {
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
-
-  // success notify
-  const successNotify = () =>
-    toast.success("Account creation successfull", {
-      position: "top-center",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Zoom,
-    });
-
-  // failed notify
-  const failedNotify = (errorMessage) =>
-    toast.error(`${errorMessage}`, {
-      position: "top-center",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Zoom,
-    });
 
   return (
     <div className="container mx-auto p-5 min-h-[100vh] flex flex-col justify-center items-center relative">
@@ -250,8 +220,6 @@ const SignUp = () => {
             value="Sign up"
             className="bg-main px-4 py-2 rounded text-white font-bold  hover:bg-sub duration-300 w-full"
           />
-
-          <ToastContainer closeButton={false} />
         </form>
 
         {/* back to homepage button */}

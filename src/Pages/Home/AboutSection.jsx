@@ -1,5 +1,4 @@
 import AOS from "aos";
-import "aos/dist/aos.css";
 import { AiTwotoneLike, AiTwotoneRocket, AiTwotoneStar } from "react-icons/ai";
 
 const AboutSection = () => {

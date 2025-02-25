@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Flip, ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { FaUpload } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import useCurrentUser from "../../Hooks/useCurrentUser";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
@@ -169,7 +168,7 @@ const UpdateListing = () => {
           setNewSelectedPhoto(uploadedPhoto);
         })
         .catch((err) => {
-          failureNotify(err.code);
+          toast.error(err.code);
           setNewSelectedPhoto(initialPhoto);
         });
     } else {
@@ -226,50 +225,14 @@ const UpdateListing = () => {
       .then((res) => {
         const data = res.data;
         if (data.modifiedCount) {
-          successNotify();
+          toast.success("Listing updated successfully!");
         }
       })
 
       .catch((err) => {
-        failureNotify(err.code);
+        toast.error(err.code);
       });
   };
-
-  // Successful message
-  const successNotify = () =>
-    toast.success("Listing updated successfully!", {
-      position: "top-center",
-      autoClose: 1800,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
-
-  // Failed message
-  const failureNotify = (errorMessage) =>
-    toast.error(`${errorMessage}`, {
-      position: "top-center",
-      autoClose: 1800,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
-
-  // animation
-  AOS.init({
-    offset: 120,
-    duration: 1500,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
@@ -595,8 +558,6 @@ const UpdateListing = () => {
           className="w-full lg:w-2/3 px-5 py-3 bg-sub mt-5 rounded-md text-white hover:bg-main duration-300  font-semibold text-xl  cursor-pointer"
         />
       </form>
-
-      <ToastContainer closeButton={false} />
     </div>
   );
 };

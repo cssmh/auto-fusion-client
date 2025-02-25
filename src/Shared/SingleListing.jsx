@@ -10,7 +10,6 @@ import { BsFuelPumpDiesel } from "react-icons/bs";
 import { TbManualGearbox } from "react-icons/tb";
 import { GoArrowUpRight } from "react-icons/go";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import useCurrentUser from "../Hooks/useCurrentUser";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useBids from "../Hooks/useBids";

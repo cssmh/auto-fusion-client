@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { CgDanger, CgCheckO } from "react-icons/cg";
-import { Flip, ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
 import { FaStar } from "react-icons/fa";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
@@ -8,7 +8,6 @@ import useCurrentUser from "../../Hooks/useCurrentUser";
 import LoadingAnimation from "../../Shared/LoadingAnimation";
 
 const UserProfile = () => {
-  // hooks and custom hooks
   const detailsUpdateForm = useRef(null);
   const feedbackForm = useRef(null);
   const axiosSecure = useAxiosSecure();
@@ -42,12 +41,12 @@ const UserProfile = () => {
       .then((res) => {
         const data = res.data;
         if (data.modifiedCount > 0) {
-          successNotify("Requested for verification");
+          toast.success("Requested for verification");
           dbCurrentUserRefetch();
           detailsUpdateForm.current.reset();
         }
       })
-      .catch((err) => failureNotify(err.code + "|" + err.message));
+      .catch((err) => toast.error(err.code + "|" + err.message));
   };
 
   // get today's date
@@ -68,11 +67,11 @@ const UserProfile = () => {
       .then((res) => {
         const data = res.data;
         if (data.modifiedCount > 0) {
-          successNotify("Details updated");
+          toast.success("Details updated");
           dbCurrentUserRefetch();
         }
       })
-      .catch((err) => failureNotify(err.code + "|" + err.message));
+      .catch((err) => toast.error(err.code + "|" + err.message));
   };
 
   // handle feedback submit by user
@@ -104,41 +103,13 @@ const UserProfile = () => {
         const data = res.data;
         if (data.insertedId) {
           setFeedbackRecorded(!feedbackRecorded);
-          successNotify("Feedback recorded");
+          toast.success("Feedback recorded");
           feedbackForm.current.reset();
           feedbackRefetch();
         }
       })
-      .catch((err) => failureNotify(err.code));
+      .catch((err) => toast.error(err.code));
   };
-
-  // Successful message
-  const successNotify = (successMessage) =>
-    toast.success(`${successMessage}`, {
-      position: "bottom-right",
-      autoClose: 1800,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
-
-  // Failed message
-  const failureNotify = (errorMessage) =>
-    toast.error(`${errorMessage}`, {
-      position: "bottom-right",
-      autoClose: 1800,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
 
   return (
     <div className="lg:min-h-[100vh] w-full flex flex-col justify-start items-center gap-5">
@@ -155,7 +126,6 @@ const UserProfile = () => {
         <p className="text-lightBlack text-[16px] font-medium">
           {dbCurrentUser?.email}
         </p>
-        <ToastContainer closeButton={false} />
 
         {dbCurrentUser?.verifyStatus === "not verified" ||
         dbCurrentUser?.verifyStatus === "declined" ? (

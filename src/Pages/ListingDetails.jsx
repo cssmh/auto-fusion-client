@@ -1,13 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { FaUser, FaPhone, FaStar, FaRegStar } from "react-icons/fa";
 import { SiAdguard } from "react-icons/si";
 import { useEffect, useState } from "react";
 import { AiTwotoneLike } from "react-icons/ai";
-import { ToastContainer, toast, Zoom } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useScrollToTop from "../Hooks/useScrollToTop";
@@ -15,7 +12,6 @@ import useCurrentUser from "../Hooks/useCurrentUser";
 import LoadingAnimation from "../Shared/LoadingAnimation";
 
 const ListingDetails = () => {
-  // hooks and custom hooks
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
@@ -207,51 +203,15 @@ const ListingDetails = () => {
       .then((res) => {
         const data = res.data;
         if (data.insertedId) {
-          successNotify("Placed your bid successfully!");
+          toast.success("Placed your bid successfully!");
           const modal = document.getElementById("biddingModal");
           modal.close();
         }
       })
       .catch((err) => {
-        failedNotify(err.code);
+        toast.error(err.code);
       });
   };
-
-  // Success message for successful login
-  const successNotify = (message) =>
-    toast.success(`${message}`, {
-      position: "top-center",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Zoom,
-    });
-
-  // Failed notification for failed login (email-password)
-  const failedNotify = (errorMessage) =>
-    toast.error(`${errorMessage}`, {
-      position: "top-center",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Zoom,
-    });
-
-  // animation
-  AOS.init({
-    offset: 120,
-    duration: 1500,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="container mx-auto p-5 flex flex-col justify-center items-center gap-10 font-body overflow-x-hidden">
@@ -532,8 +492,6 @@ const ListingDetails = () => {
                 className="bg-black text-white font-medium hover:bg-sub duration-500 px-4 py-2 mt-3 rounded-lg cursor-pointer"
               />
             </form>
-
-            <ToastContainer closeButton={false} />
           </div>
         </div>
       </dialog>

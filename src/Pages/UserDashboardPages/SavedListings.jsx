@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import AOS from "aos";
-import "aos/dist/aos.css";
 import Lottie from "lottie-react";
 import carLottie from "../../assets/carLottie.json";
 import useCurrentUser from "../../Hooks/useCurrentUser";
