@@ -1,5 +1,5 @@
 import axios from "axios";
-import useAuthContext from "./useAuthContext";
+import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosSecure = axios.create({
@@ -7,7 +7,7 @@ const axiosSecure = axios.create({
 });
 
 const useAxiosSecure = () => {
-  const { signOutUser } = useAuthContext();
+  const { signOutUser } = useAuth();
   const navigate = useNavigate();
   axiosSecure.interceptors.request.use(
     function (config) {

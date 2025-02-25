@@ -10,13 +10,13 @@ import { MdHome } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 import { useEffect } from "react";
 import logo from "../assets/auto.png";
-import useAuthContext from "../Hooks/useAuthContext";
+import useAuth from "../Hooks/useAuth";
 import useIsAdmin from "../Hooks/useIsAdmin";
 import useCurrentUser from "../Hooks/useCurrentUser";
 import LoadingAnimation from "../Shared/LoadingAnimation";
 
 const Dashboard = () => {
-  const { signOutUser, authLoading } = useAuthContext();
+  const { signOutUser, authLoading } = useAuth();
   const { isAdminPending, isAdmin } = useIsAdmin();
   const navigate = useNavigate();
   const { dbCurrentUserPending, dbCurrentUser } = useCurrentUser();

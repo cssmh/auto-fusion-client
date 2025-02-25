@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import useAuthContext from "./useAuthContext";
+import useAuth from "./useAuth";
 import useAxiosPublic from "./useAxiosPublic";
 
 const useCurrentUser = () => {
   // hooks
   const axiosPublic = useAxiosPublic();
-  const { currentUser, authLoading } = useAuthContext();
+  const { currentUser, authLoading } = useAuth();
   const userEmail = currentUser?.email;
 
   const {

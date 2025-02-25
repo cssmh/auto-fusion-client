@@ -13,11 +13,11 @@ import app from "./firebase.config";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const auth = getAuth(app);
-export const AuthContext = createContext("");
+export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState("");
+  const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
   const axiosPublic = useAxiosPublic();
 
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
   //keep trace on logged in user
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
+      setUser(user);
       setAuthLoading(false);
       // if user is available, send the user email to backend
       if (user) {
@@ -91,7 +91,7 @@ const AuthProvider = ({ children }) => {
     createNewUser,
     createNewUserByGoogle,
     signOutUser,
-    currentUser,
+    user,
     accessExistingUser,
     updateProfileInfo,
     authLoading,

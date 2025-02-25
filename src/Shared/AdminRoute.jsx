@@ -1,11 +1,11 @@
 import { Navigate } from "react-router-dom";
 import useIsAdmin from "../Hooks/useIsAdmin";
-import useAuthContext from "../Hooks/useAuthContext";
+import useAuth from "../Hooks/useAuth";
 import LoadingAnimation from "./LoadingAnimation";
 
 const AdminRoute = ({ children }) => {
   const { isAdminPending, isAdmin } = useIsAdmin();
-  const { currentUser, authLoading } = useAuthContext();
+  const { currentUser, authLoading } = useAuth();
 
   if (isAdminPending || authLoading) return <LoadingAnimation />;
   if (currentUser && isAdmin) return children;

@@ -1,21 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
-import { ToastContainer, toast, Zoom } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import logo from "../assets/auto.png";
-import useAuthContext from "../Hooks/useAuthContext";
+import useAuth from "../Hooks/useAuth";
 import useCurrentUser from "../Hooks/useCurrentUser";
 
 const Header = () => {
-  const { currentUser, signOutUser } = useAuthContext();
+  const { currentUser, signOutUser } = useAuth();
   const { dbCurrentUser } = useCurrentUser();
 
   const handleLogOut = () => {
     signOutUser()
       .then(() => {
-        successNotify();
+        toast.success("Logged out!");
       })
       .catch(() => {
-        failedNotify();
+        toast.error("Could not log out");
       });
   };
 
@@ -91,34 +90,6 @@ const Header = () => {
     </>
   );
 
-  // signout notify
-  const successNotify = () =>
-    toast.success("Logged out!", {
-      position: "top-right",
-      autoClose: 300,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Zoom,
-    });
-
-  // Fail notify
-  const failedNotify = () =>
-    toast.error("Could not log out", {
-      position: "top-right",
-      autoClose: 300,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "colored",
-      transition: Zoom,
-    });
-
   return (
     <div className="container mx-auto z-[99] bg-white">
       <div className="navbar">
@@ -165,7 +136,6 @@ const Header = () => {
               <div className="flex">{userLinks}</div>
             </div>
           </div>
-          <ToastContainer closeButton={false} />
         </div>
       </div>
     </div>

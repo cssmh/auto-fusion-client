@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import useAuthContext from "./useAuthContext";
+import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 
 const useIsAdmin = () => {
   // hooks and custom hooks
-  const { currentUser, authLoading } = useAuthContext();
+  const { currentUser, authLoading } = useAuth();
   const axiosSecure = useAxiosSecure();
 
   const userEmail = currentUser?.email;

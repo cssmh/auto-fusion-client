@@ -18,7 +18,6 @@ body {
   min-height: calc(100vh - 70px);
 }
 
-/* Add this style for the underline */
 .active-nav-menu::after {
   content: "";
   display: block;

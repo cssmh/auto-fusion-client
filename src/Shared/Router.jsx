@@ -1,5 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../Root/MainLayout";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import ErrorPage from "../Components/ErrorPage";
 import Home from "../Pages/Home/Home";
 import AllListings from "../Pages/AllListings";
@@ -18,11 +17,19 @@ import MyListings from "../Pages/UserDashboardPages/MyListings";
 import UpdateListing from "../Pages/UserDashboardPages/UpdateListing";
 import SavedListings from "../Pages/UserDashboardPages/SavedListings";
 import BidsForAListing from "../Pages/UserDashboardPages/BidsForAListing";
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: (
+      <>
+        <Header />
+        <Outlet />
+        <Footer />
+      </>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

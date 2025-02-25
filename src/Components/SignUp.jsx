@@ -5,7 +5,7 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { MdHome } from "react-icons/md";
 import { FaUpload } from "react-icons/fa";
-import useAuthContext from "../Hooks/useAuthContext";
+import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 // image hosting (imgBB) key and url
@@ -14,7 +14,7 @@ const imgUploadUrl = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`;
 
 const SignUp = () => {
   // hooks and custom hooks
-  const { createNewUser, updateProfileInfo } = useAuthContext();
+  const { createNewUser, updateProfileInfo } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = useState("");
   const axiosPublic = useAxiosPublic();
