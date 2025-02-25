@@ -5,8 +5,8 @@ import useAxiosPublic from "./useAxiosPublic";
 const useCurrentUser = () => {
   // hooks
   const axiosPublic = useAxiosPublic();
-  const { currentUser, authLoading } = useAuth();
-  const userEmail = currentUser?.email;
+  const { user, authLoading } = useAuth();
+  const userEmail = user?.email;
 
   const {
     isPending: dbCurrentUserPending,

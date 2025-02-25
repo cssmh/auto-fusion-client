@@ -5,7 +5,7 @@ import useAuth from "../Hooks/useAuth";
 import useCurrentUser from "../Hooks/useCurrentUser";
 
 const Header = () => {
-  const { currentUser, signOutUser } = useAuth();
+  const { user, signOutUser } = useAuth();
   const { dbCurrentUser } = useCurrentUser();
 
   const handleLogOut = () => {
@@ -18,10 +18,8 @@ const Header = () => {
       });
   };
 
-  // navigation bar links
   const links = (
     <>
-      {/* home */}
       <NavLink
         to="/"
         className={({ isActive }) => {
@@ -30,8 +28,6 @@ const Header = () => {
       >
         Home
       </NavLink>
-
-      {/* all listing */}
       <NavLink
         to="/allListings"
         className={({ isActive }) => {
@@ -43,20 +39,16 @@ const Header = () => {
     </>
   );
 
-  // user dashboard links if user is signed in
   const userLinks = (
     <>
-      {currentUser ? (
+      {user ? (
         <>
-          {/* dropdown */}
           <div className="dropdown dropdown-bottom dropdown-end">
-            {/* avatar */}
             <div tabIndex={0} role="button" className="avatar m-1">
               <div className="w-10 rounded-full">
                 <img src={dbCurrentUser?.photo} alt="user photo" />
               </div>
             </div>
-            {/* dropdown links */}
             <div
               tabIndex={0}
               className="dropdown-content z-[1] menu py-5 px-2 shadow rounded-box w-52 flex flex-col justify-start items-center gap-4 bg-white"
@@ -128,7 +120,6 @@ const Header = () => {
         </div>
         <div className="navbar-end flex justify-end items-center gap-4">
           <div className="navbar-center lg:flex justify-end items-center">
-            {/* Links for desktop version */}
             <div className="menu menu-horizontal px-1 text-base font-bold space-x-10">
               <div className="hidden lg:flex justify-center items-center gap-7">
                 {links}

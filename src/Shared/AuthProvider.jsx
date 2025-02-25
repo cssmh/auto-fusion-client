@@ -21,50 +21,37 @@ const AuthProvider = ({ children }) => {
   const [authLoading, setAuthLoading] = useState(true);
   const axiosPublic = useAxiosPublic();
 
-  // email-password sign up function
   const createNewUser = (email, password) => {
     setAuthLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // Email-password sign up profile info update
-  const updateProfileInfo = (currentUsersInfo, username, photo) => {
-    updateProfile(currentUsersInfo, {
-      displayName: username,
-      photoURL: photo,
-    })
-      .then(() => {
-        //
-      })
-      .catch(() => {
-        //
-      });
+  const updateProfileInfo = (name, image) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: image,
+    });
   };
 
-  // email-password log in function
   const accessExistingUser = (email, password) => {
     setAuthLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  //Google sign up function
   const createNewUserByGoogle = () => {
     setAuthLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
-  //Sign out
   const signOutUser = () => {
     setAuthLoading(true);
     return signOut(auth);
   };
 
-  //keep trace on logged in user
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setAuthLoading(false);
-      // if user is available, send the user email to backend
       if (user) {
         const userInfo = { email: user?.email };
         axiosPublic.post("/jwt", userInfo).then((res) => {
@@ -75,7 +62,6 @@ const AuthProvider = ({ children }) => {
           }
         });
       }
-      // if user is not available remove the access token
       else {
         localStorage.removeItem("access-token");
         setAuthLoading(false);
