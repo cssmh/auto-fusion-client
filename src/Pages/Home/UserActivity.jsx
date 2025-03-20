@@ -1,14 +1,6 @@
 import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
-import AOS from "aos";
 const UserActivity = () => {
-  AOS.init({
-    offset: 120,
-    duration: 1200,
-    easing: "ease",
-    delay: 50,
-  });
-
   return (
     <div
       className="container mx-auto p-5 flex flex-col md:flex-row justify-center items-center gap-10 font-heading mt-24"

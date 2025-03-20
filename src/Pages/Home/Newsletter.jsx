@@ -1,11 +1,4 @@
-import AOS from "aos";
 const Newsletter = () => {
-  AOS.init({
-    offset: 120,
-    duration: 1200,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="mt-5 rounded-lg bg-lightMain flex flex-col justify-center items-center gap-4 container mx-auto px-5 py-10 md:py-16">

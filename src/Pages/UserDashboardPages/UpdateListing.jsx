@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaUpload } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
-import AOS from "aos";
 import useCurrentUser from "../../Hooks/useCurrentUser";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";

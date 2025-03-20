@@ -9,7 +9,6 @@ import { IoClose, IoSpeedometerOutline } from "react-icons/io5";
 import { BsFuelPumpDiesel } from "react-icons/bs";
 import { TbManualGearbox } from "react-icons/tb";
 import { GoArrowUpRight } from "react-icons/go";
-import AOS from "aos";
 import useCurrentUser from "../Hooks/useCurrentUser";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useBids from "../Hooks/useBids";
@@ -118,14 +117,6 @@ const SingleListing = ({ singleList, listingsRefetch }) => {
         }
       });
   };
-
-  // animation
-  AOS.init({
-    offset: 120,
-    duration: 1500,
-    easing: "ease",
-    delay: 50,
-  });
 
   if (bidsPending) {
     return (

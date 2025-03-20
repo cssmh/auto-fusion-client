@@ -1,4 +1,3 @@
-import AOS from "aos";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { FaQuoteLeft } from "react-icons/fa";
@@ -24,13 +23,6 @@ const Testimonial = () => {
       <p className="text-center text-lightBlack capitalize">loading....</p>
     );
   }
-
-  AOS.init({
-    offset: 120,
-    duration: 1200,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="flex flex-col justify-center items-center gap-2 md:gap-4 container mx-auto p-5">

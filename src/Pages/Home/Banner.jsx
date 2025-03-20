@@ -1,4 +1,3 @@
-import AOS from "aos";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import bannerImg from "../../assets/banner.png";
@@ -71,13 +70,6 @@ const Banner = () => {
       navigate("/allListings");
     }
   };
-
-  AOS.init({
-    offset: 120,
-    duration: 1500,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div

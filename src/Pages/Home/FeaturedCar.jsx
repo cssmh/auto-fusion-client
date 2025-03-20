@@ -1,4 +1,3 @@
-import AOS from "aos";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -20,13 +19,6 @@ const FeaturedCar = () => {
       <p className="text-center text-lightBlack capitalize">loading....</p>
     );
   }
-
-  AOS.init({
-    offset: 120,
-    duration: 1200,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="flex flex-col justify-center items-center gap-4 container mx-auto p-5">

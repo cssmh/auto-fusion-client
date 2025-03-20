@@ -1,4 +1,3 @@
-import AOS from "aos";
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import carLottie from "../assets/carLottie.json";
@@ -87,14 +86,6 @@ const AllListings = () => {
 
   // set total pages
   const totalPages = [...Array(pages).keys()];
-
-  // animation
-  AOS.init({
-    offset: 120,
-    duration: 1500,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="container mx-auto flex flex-col justify-center items-center gap-5 p-5">

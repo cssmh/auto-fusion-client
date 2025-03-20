@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import AOS from "aos";
 import Lottie from "lottie-react";
 import carLottie from "../../assets/carLottie.json";
 import useCurrentUser from "../../Hooks/useCurrentUser";
@@ -32,14 +31,6 @@ const SavedListings = () => {
 
   // conditional loading
   if (savedListingsPending) return <LoadingAnimation />;
-
-  // animation
-  AOS.init({
-    offset: 120,
-    duration: 1500,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="flex flex-col justify-start items-center w-full h-full">

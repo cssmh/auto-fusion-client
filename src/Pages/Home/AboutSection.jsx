@@ -1,13 +1,6 @@
-import AOS from "aos";
 import { AiTwotoneLike, AiTwotoneRocket, AiTwotoneStar } from "react-icons/ai";
 
 const AboutSection = () => {
-  AOS.init({
-    offset: 120,
-    duration: 1200,
-    easing: "ease",
-    delay: 50,
-  });
 
   return (
     <div className="flex justify-center items-center">

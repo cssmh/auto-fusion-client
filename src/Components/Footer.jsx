@@ -1,4 +1,3 @@
-import AOS from "aos";
 import logo from "../assets/bg.png";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"; // Import icons
 
