@@ -32,14 +32,8 @@ const Router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/allListings",
-        element: <AllListings />,
-      },
+      { path: "/", element: <Home /> },
+      { path: "/allListings", element: <AllListings /> },
       {
         path: "/details/:id",
         element: (
@@ -50,14 +44,8 @@ const Router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/signUp",
-    element: <SignUp />,
-  },
-  {
-    path: "/login",
-    element: <LogIn />,
-  },
+  { path: "/signUp", element: <SignUp /> },
+  { path: "/login", element: <LogIn /> },
   // dashboard router
   {
     path: "dashboard",
@@ -93,30 +81,12 @@ const Router = createBrowserRouter([
         ),
       },
       // user dashboard router
-      {
-        path: "sellCar",
-        element: <SellYourCar />,
-      },
-      {
-        path: "profile",
-        element: <UserProfile />,
-      },
-      {
-        path: "myListings",
-        element: <MyListings />,
-      },
-      {
-        path: "updateListing/:id",
-        element: <UpdateListing />,
-      },
-      {
-        path: "savedListings",
-        element: <SavedListings />,
-      },
-      {
-        path: "bids/:id",
-        element: <BidsForAListing />,
-      },
+      { path: "sellCar", element: <SellYourCar /> },
+      { path: "profile", element: <UserProfile /> },
+      { path: "myListings", element: <MyListings /> },
+      { path: "updateListing/:id", element: <UpdateListing /> },
+      { path: "savedListings", element: <SavedListings /> },
+      { path: "bids/:id", element: <BidsForAListing /> },
     ],
   },
 ]);
