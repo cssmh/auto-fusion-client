@@ -160,7 +160,6 @@ const Dashboard = () => {
             <FaBars />
           </label>
         </div>
-
         {/* drawer sidebar */}
         <div className="drawer-side min-h-full lg:min-h-[100vh]">
           <label
@@ -177,7 +176,6 @@ const Dashboard = () => {
                 className="w-40 hover:scale-110 duration-300"
               />
             </Link>
-
             {/* Sidebar links here */}
             <div className="w-full mt-4 flex-grow flex flex-col content-between justify-between">
               {/* admin - user links */}
@@ -200,7 +198,6 @@ const Dashboard = () => {
 
                 {isAdmin ? adminLinks : userLinks}
               </div>
-
               {/* navbarLinks links */}
               <div className="w-full flex flex-col justify-start items-start gap-2">
                 {navbarLinks}

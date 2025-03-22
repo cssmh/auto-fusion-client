@@ -126,7 +126,6 @@ const UserProfile = () => {
         <p className="text-lightBlack text-[16px] font-medium">
           {dbCurrentUser?.email}
         </p>
-
         {dbCurrentUser?.verifyStatus === "not verified" ||
         dbCurrentUser?.verifyStatus === "declined" ? (
           <div className="flex flex-col justify-center items-center gap-3">
@@ -153,7 +152,6 @@ const UserProfile = () => {
           </p>
         )}
       </div>
-
       {/* parent container for details and review input */}
       <div className="w-full flex flex-col md:flex-row justify-center md:justify-between items-center gap-10 mt-8">
         {/* user details section */}
@@ -186,7 +184,6 @@ const UserProfile = () => {
                       className="w-full border-[1px] border-gray px-4 py-2 rounded-[3px] focus:outline-none focus:border-lightMain"
                     />
                   </div>
-
                   {/* address */}
                   <div className="font-body flex flex-col justify-start items-start gap-3 w-full">
                     <label>
@@ -201,7 +198,6 @@ const UserProfile = () => {
                     ></textarea>
                   </div>
                 </div>
-
                 {/* submit button */}
                 <input
                   type="submit"
@@ -226,7 +222,6 @@ const UserProfile = () => {
             </div>
           )}
         </div>
-
         <div className="w-full md:w-1/2 self-stretch">
           {singleFeedback ? (
             <div className="w-full h-full flex flex-col justify-center items-start gap-4 bg-[#ececec] p-5 shadow-[0_0_50px_#ececec] rounded-[5px]">
@@ -252,7 +247,6 @@ const UserProfile = () => {
               <h3 className="text-black text-2xl font-bold">
                 We value your feedback
               </h3>
-
               <form
                 onSubmit={handleFeedbackSubmit}
                 ref={feedbackForm}
@@ -284,7 +278,6 @@ const UserProfile = () => {
                       </option>
                     </select>
                   </div>
-
                   {/* feedback */}
                   <div className="font-body flex flex-col justify-start items-start gap-3 w-full">
                     <label>
@@ -300,7 +293,6 @@ const UserProfile = () => {
                     ></textarea>
                   </div>
                 </div>
-
                 {/* submit button */}
                 <input
                   type="submit"

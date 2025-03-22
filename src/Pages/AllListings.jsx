@@ -123,7 +123,6 @@ const AllListings = () => {
             <option value="moderate">Moderate</option>
           </select>
         </div>
-
         {/* Car brand */}
         <div className="flex flex-col items-start gap-2 w-full md:w-auto">
           <label htmlFor="carBrand" className="text-lightBlack font-medium">
@@ -150,7 +149,6 @@ const AllListings = () => {
             ))}
           </select>
         </div>
-
         {/* Price range */}
         <div className="flex flex-col items-start gap-2 w-full md:w-auto">
           <label htmlFor="carPrice" className="text-lightBlack font-medium">

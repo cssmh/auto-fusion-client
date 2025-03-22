@@ -389,7 +389,6 @@ const ListingDetails = () => {
               )}
             </span>{" "}
           </p>
-
           {/* member verification status */}
           <p
             className={`${
@@ -401,7 +400,6 @@ const ListingDetails = () => {
             {sellerVerificationStatus} member
           </p>
         </div>
-
         {/* safety tips */}
         <div className="flex flex-col justify-center items-start gap-3 bg-[#e8fffb] px-14 py-8 rounded w-full md:w-1/2">
           <p className="text-[#0a800a] text-xl font-semibold flex justify-center items-center gap-2">
@@ -415,7 +413,6 @@ const ListingDetails = () => {
           </ul>
         </div>
       </div>
-
       {/* modal to bid on a listing */}
       <dialog
         id="biddingModal"
@@ -439,7 +436,6 @@ const ListingDetails = () => {
                 value={dbCurrentUser?.name}
                 className="w-full border-[1px] border-gray focus:outline-none focus:border-lightBlack px-5 py-2 rounded-lg text-black"
               />
-
               {/* email */}
               <label className="text-lightBlack mt-3">Your email</label>
               <input
@@ -450,7 +446,6 @@ const ListingDetails = () => {
                 value={dbCurrentUser?.email}
                 className="w-full border-[1px] border-gray focus:outline-none focus:border-lightBlack px-5 py-2 rounded-lg text-black"
               />
-
               {/* phone */}
               <label className="text-lightBlack mt-3">Your phone *</label>
               <input
@@ -461,7 +456,6 @@ const ListingDetails = () => {
                 placeholder="Your phone"
                 className="w-full border-[1px] border-gray focus:outline-none focus:border-lightBlack px-5 py-2 rounded-lg text-black"
               />
-
               {/* proposed price */}
               <label className="text-lightBlack mt-3">
                 Proposed price ($) *
@@ -476,7 +470,6 @@ const ListingDetails = () => {
                 defaultValue={price}
                 className="w-full border-[1px] border-gray focus:outline-none focus:border-lightBlack px-5 py-2 rounded-lg text-black"
               />
-
               {/* message */}
               <label className="text-lightBlack mt-3">Message</label>
               <textarea
@@ -485,7 +478,6 @@ const ListingDetails = () => {
                 id="bidderMessage"
                 className="w-full border-[1px] border-gray focus:outline-none focus:border-lightBlack px-5 py-2 rounded-lg text-black"
               ></textarea>
-
               <input
                 type="submit"
                 value="Submit bid"
