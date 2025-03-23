@@ -121,7 +121,6 @@ const SignUp = () => {
     }
   };
 
-  // show-hide password functionality
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -132,13 +131,10 @@ const SignUp = () => {
         <h2 className="text-3xl text-main font-bold text-center ">
           Sign up for free!
         </h2>
-
-        {/* sign up form */}
         <form
           onSubmit={handleSignUp}
           className="flex flex-col justify-center items-center w-full md:w-2/3 lg:w-1/3 space-y-7 lg:space-y-10 px-10 "
         >
-          {/* name input */}
           <input
             type="text"
             name="name"
@@ -146,8 +142,6 @@ const SignUp = () => {
             id="name"
             className="focus:outline-none border-b-[1px] pb-2 border-[lightgray] focus:border-main transition-all duration-500 w-full"
           />
-
-          {/* email input */}
           <input
             required
             type="email"
@@ -156,8 +150,6 @@ const SignUp = () => {
             id="eamil"
             className="focus:outline-none border-b-[1px] pb-2 border-[lightgray] focus:border-main transition-all duration-500 w-full"
           />
-
-          {/* username input */}
           <input
             required
             type="text"
@@ -166,8 +158,6 @@ const SignUp = () => {
             id="username"
             className="focus:outline-none border-b-[1px] pb-2 border-[lightgray] focus:border-main transition-all duration-500 w-full"
           />
-
-          {/* password input */}
           <div className="w-full">
             <div className="flex relative w-full justify-center items-center">
               <input
@@ -194,8 +184,6 @@ const SignUp = () => {
               ""
             )}
           </div>
-
-          {/* image file input */}
           <label
             htmlFor="image"
             className="cursor-pointer relative focus:outline-none border-b-[1px] pb-2 border-[lightgray] focus:border-main transition-all duration-500 w-full text-[gray] flex justify-start items-center gap-2"
@@ -213,16 +201,12 @@ const SignUp = () => {
               className="cursor-pointer opacity-0 absolute top-0 left-0 w-full"
             />
           </label>
-
-          {/* submit button */}
           <input
             type="submit"
             value="Sign up"
             className="bg-main px-4 py-2 rounded text-white font-bold  hover:bg-sub duration-300 w-full"
           />
         </form>
-
-        {/* back to homepage button */}
         <Link
           to="/"
           className="absolute top-0 left-5 flex justify-center items-center gap-2 text-[18px] font-semibold hover:text-main duration-500 hover:scale-105"
@@ -230,7 +214,6 @@ const SignUp = () => {
           <MdHome /> Back to Home
         </Link>
       </div>
-
       <div className="flex justify-center items-center flex-col font-heading">
         <div className="mt-5 flex justify-center items-center gap-1">
           <p className="text-center font-semibold ">Already have an account?</p>

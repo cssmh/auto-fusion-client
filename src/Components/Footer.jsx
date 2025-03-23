@@ -1,6 +1,5 @@
 import logo from "../assets/bg.png";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"; // Import icons
-
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (

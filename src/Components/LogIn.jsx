@@ -103,7 +103,6 @@ const LogIn = () => {
               id="eamil"
               className="focus:outline-none border-b-[1px] pb-2 border-[lightgray] focus:border-main  transition-all duration-500 w-full"
             />
-
             <div className="flex relative w-full justify-center items-center">
               <input
                 type={showPassword ? "text" : "password"}
@@ -120,15 +119,12 @@ const LogIn = () => {
                 {showPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}{" "}
               </span>
             </div>
-
             <input
               type="submit"
               value="Login"
               className="bg-main font-bold  px-4 py-2 rounded text-white hover:bg-sub duration-300 w-full"
             />
           </form>
-
-          {/* back to homepage button */}
           <Link
             to="/"
             className="absolute top-0 left-5 flex justify-center items-center gap-2 text-[18px] font-semibold hover:text-main duration-500 hover:scale-105"
@@ -136,7 +132,6 @@ const LogIn = () => {
             <MdHome /> Back to Home
           </Link>
         </div>
-
         <div className="mt-10 flex justify-center items-center flex-col w-full font-heading">
           <button
             onClick={handleGoogleSignIn}
