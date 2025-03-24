@@ -11,8 +11,8 @@ const Home = () => {
     <>
       <Banner />
       <UserActivity />
-      <AboutSection />
       <FeaturedCar />
+      <AboutSection />
       <Testimonial />
       <TopBidListings />
       <Newsletter />

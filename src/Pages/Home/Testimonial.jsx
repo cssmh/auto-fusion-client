@@ -9,80 +9,70 @@ const Testimonial = () => {
   const axiosPublic = useAxiosPublic();
   const [activeFeedback, setActiveFeedback] = useState(null);
 
-  const { isPending: feedbackPending, data: allFeedbacks } = useQuery({
+  const { isPending: feedbackPending, data: allFeedbacks = [] } = useQuery({
     queryKey: ["all-feedback"],
     queryFn: async () => {
       const res = await axiosPublic.get("/allFeedbacks");
-      setActiveFeedback(res.data[0]._id);
+      setActiveFeedback(res.data[0]?._id);
       return res.data;
     },
   });
 
   if (feedbackPending) {
-    return (
-      <p className="text-center text-lightBlack capitalize">loading....</p>
-    );
+    return <p className="text-center text-gray-600 text-lg">Loading...</p>;
   }
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2 md:gap-4 container mx-auto p-5">
-      <h2
-        className="text-2xl md:text-4xl capitalize text-main font-semibold text-center"
-        data-aos="slide-down"
-        data-aos-mirror="true"
-        data-aos-once="false"
-        data-aos-anchor-placement="top-bottom"
-      >
+    <div className="flex flex-col items-center gap-6 container mx-auto px-6 py-12">
+      <h2 className="text-3xl md:text-4xl font-semibold text-main text-center">
         Words of Praise
       </h2>
-      <p className="text-center text-lightBlack w-full lg:w-[60%]">
+      <p className="text-center text-gray-700 max-w-2xl">
         Discover the success stories that speak louder than words! Hear
         firsthand from our delighted users about their experiences.
       </p>
-      {/* testimonial description */}
-      <div className="w-full md:w-[80%] lg:w-[70%] px-[70px] md:h-[300px] py-20 flex flex-col justify-center items-center text-center bg-black shadow-[0_0_50px_#e6e6e6] rounded-[10px] mt-10 relative">
-        {allFeedbacks.map((singleFeedback) => (
-          <div key={singleFeedback?._id} className="text-center w-full">
-            {activeFeedback === singleFeedback?._id && (
-              <div className="w-full flex flex-col justify-center items-center gap-4">
+
+      {/* Testimonial Box */}
+      <div className="relative w-full md:w-3/4 bg-gray-900 text-white shadow-lg rounded-lg p-8 md:p-10 text-center">
+        {allFeedbacks.map(
+          (feedback) =>
+            activeFeedback === feedback._id && (
+              <div key={feedback._id} className="space-y-4">
                 <Rating
                   style={{ maxWidth: 150 }}
-                  value={parseInt(singleFeedback?.ratingByUser)}
+                  value={parseInt(feedback.ratingByUser)}
                   readOnly
                 />
-                <p className="w-full text-white font-medium text-[18px]">
-                  {singleFeedback?.feedBack}
+                <p className="text-lg font-medium">{feedback.feedBack}</p>
+
+                <p className="font-semibold text-xl text-sub">
+                  - {feedback.feedbackProvider}
                 </p>
-                {allFeedbacks.map((singleFeedback) => (
-                  <div key={singleFeedback?._id}>
-                    <button
-                      onClick={() => setActiveFeedback(singleFeedback?._id)}
-                    >
-                      <img
-                        src={singleFeedback?.feedbackProviderPhoto}
-                        alt=""
-                        className={`w-[32px] h-[32px] md:w-[60px] p-[2px] md:h-[60px] bg-cover border duration-500 rounded-full ${
-                          activeFeedback === singleFeedback?._id
-                            ? "border-sub"
-                            : "border-[#ffffff00]"
-                        }`}
-                      />
-                    </button>
-                  </div>
-                ))}
-                <p className="absolute bottom-[40px] text-white font-semibold text-xl right-[80px]">
-                  - {singleFeedback?.feedbackProvider}
-                </p>
-                <FaQuoteLeft
-                  className="text-3xl lg:text-5xl absolute top-[-10px] md:top-[-20px] left-[-5px] md:left-[-20px] text-[#c2c2c27e]"
-                  data-aos="slide-down"
-                  data-aos-mirror="true"
-                  data-aos-once="false"
-                  data-aos-anchor-placement="top-bottom"
-                />
+
+                <FaQuoteLeft className="text-4xl text-gray-400 absolute top-[-20px] left-[-15px]" />
               </div>
-            )}
-          </div>
+            )
+        )}
+      </div>
+
+      {/* User Avatar Selector */}
+      <div className="flex flex-wrap justify-center gap-4 mt-6">
+        {allFeedbacks.map((feedback) => (
+          <button
+            key={feedback._id}
+            onClick={() => setActiveFeedback(feedback._id)}
+            className={`w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 transition-all ${
+              activeFeedback === feedback._id
+                ? "border-sub scale-110"
+                : "border-transparent hover:border-gray-400"
+            }`}
+          >
+            <img
+              src={feedback.feedbackProviderPhoto}
+              alt={feedback.feedbackProvider}
+              className="w-full h-full object-cover"
+            />
+          </button>
         ))}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
-import logo from "../assets/auto.png";
+import logo from "../assets/car.png";
 import useAuth from "../Hooks/useAuth";
 import useCurrentUser from "../Hooks/useCurrentUser";
 
@@ -110,12 +110,13 @@ const Header = () => {
               {links}
             </ul>
           </div>
-          <Link to="/">
+          <Link to="/" className="flex items-center gap-1">
             <img
               src={logo}
               alt="Website Logo"
-              className="w-28 md:w-40 hover:scale-110 duration-500"
+              className="w-20 hover:scale-110 duration-500"
             />
+            <span className="font-bold italic text-2xl">Auto Fusion</span>
           </Link>
         </div>
         <div className="navbar-end flex justify-end items-center gap-4">

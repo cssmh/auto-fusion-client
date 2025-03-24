@@ -74,10 +74,10 @@ const Banner = () => {
   return (
     <div
       className="h-full bg-[#EEF1FB]"
-      data-aos="fade-up"
-      data-aos-mirror="true"
-      data-aos-once="false"
-      data-aos-anchor-placement="top-bottom"
+      // data-aos="fade-up"
+      // data-aos-mirror="true"
+      // data-aos-once="false"
+      // data-aos-anchor-placement="top-bottom"
     >
       <div className="container mx-auto px-5 pt-16 pb-36 md:pb-80 h-fit flex flex-col justify-start items-center font-body gap-4 relative">
         <p className="text-main text-base md:text-lg mt-[0px] md:mt-[50px]">
@@ -85,10 +85,10 @@ const Banner = () => {
         </p>
         <h1
           className="text-black text-3xl md:text-4xl lg:text-7xl font-bold text-center"
-          data-aos="zoom-in"
-          data-aos-mirror="true"
-          data-aos-once="false"
-          data-aos-anchor-placement="top-bottom"
+          // data-aos="zoom-in"
+          // data-aos-mirror="true"
+          // data-aos-once="false"
+          // data-aos-anchor-placement="top-bottom"
         >
           Find Your Dream Car
         </h1>

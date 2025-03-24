@@ -9,7 +9,7 @@ import {
 import { MdHome } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
 import { useEffect } from "react";
-import logo from "../assets/auto.png";
+import logo from "../assets/car.png";
 import useAuth from "../Hooks/useAuth";
 import useIsAdmin from "../Hooks/useIsAdmin";
 import useCurrentUser from "../Hooks/useCurrentUser";
