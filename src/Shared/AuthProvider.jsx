@@ -11,6 +11,7 @@ import {
 import { createContext, useEffect, useState } from "react";
 import app from "./firebase.config";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { clearCookie, setToken } from "../api/Auth";
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
@@ -49,21 +50,27 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
       setAuthLoading(false);
       if (user) {
-        const userInfo = { email: user?.email };
-        axiosPublic.post("/jwt", userInfo).then((res) => {
-          const token = res.data?.token;
-          if (token) {
-            localStorage.setItem("access-token", token);
-            setAuthLoading(false);
-          }
-        });
-      }
-      else {
-        localStorage.removeItem("access-token");
+        // const userInfo = { email: user?.email };
+        // axiosPublic.post("/jwt", userInfo).then((res) => {
+        //   const token = res.data?.token;
+        //   if (token) {
+        //     localStorage.setItem("access-token", token);
+        //     setAuthLoading(false);
+        //   }
+        // });
+        const res = await setToken(user?.email);
+        const token = res?.token;
+        if (token) {
+          localStorage.setItem("access-token", token);
+          setAuthLoading(false);
+        }
+      } else {
+        // localStorage.removeItem("access-token");
+        await clearCookie();
         setAuthLoading(false);
       }
     });
