@@ -116,7 +116,6 @@ const SignUp = () => {
               });
           }
         })
-        // imgbb file upload error
         .catch((err) => toast.error(err.code + "|" + err.message));
     }
   };
