@@ -7,7 +7,6 @@ import { FaUpload } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 
-// image hosting (imgBB) key and url
 const imgHostingKey = import.meta.env.VITE_imgBbKey;
 const imgUploadUrl = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`;
 
@@ -21,10 +20,8 @@ const SignUp = () => {
   const [selectedImageName, setSelectedImageName] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // get todays date
   const todayDate = new Date().toISOString().split("T")[0];
 
-  // image input and get the file name
   const handleImageInput = (e) => {
     e.preventDefault();
     const fileInput = e.target;
@@ -41,8 +38,6 @@ const SignUp = () => {
   // sign up functionality
   const handleSignUp = (e) => {
     e.preventDefault();
-
-    // if selected image file is availble, upload the image to imgbb
     if (selectedImage) {
       axiosPublic
         .post(imgUploadUrl, selectedImage, {
@@ -51,9 +46,7 @@ const SignUp = () => {
           },
         })
         .then((res) => {
-          // if image file is uploaded proceed to the further procedures
           if (res.data) {
-            // get the data from form
             const name = e.target.name.value;
             const userName = e.target.username.value;
             const email = e.target.email.value;
@@ -63,7 +56,6 @@ const SignUp = () => {
             const userType = "user";
             const verifyStatus = "not verified";
 
-            // insert the form data into an object
             const newUserInfo = {
               name,
               email,
@@ -73,8 +65,6 @@ const SignUp = () => {
               userType,
               verifyStatus,
             };
-
-            // regular expression for password
             const regExPattern = /^(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
             setPasswordErrorMessage();
 
@@ -85,14 +75,10 @@ const SignUp = () => {
               );
               return;
             }
-
-            // create new user function
             createNewUser(email, password)
               .then((result) => {
-                // if new user is created send the data to database
                 if (result.user) {
                   const currentUsersInfo = result.user;
-                  // post the new user data to database
                   axiosPublic
                     .post("/newUserApi", newUserInfo)
                     .then((res) => {
@@ -103,14 +89,12 @@ const SignUp = () => {
                         navigate(location?.state ? location.state : "/");
                       }
                     })
-                    // database post error
                     .catch((err) => {
                       const error = err.code + "-" + err.message;
                       toast.error(error);
                     });
                 }
               })
-              // firebase account creation error
               .catch((error) => {
                 toast.error(error.code + "-" + error.message);
               });
